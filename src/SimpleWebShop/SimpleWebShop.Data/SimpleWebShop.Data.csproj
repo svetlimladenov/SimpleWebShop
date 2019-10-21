@@ -55,6 +55,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\201910211654477_InitialCreate.cs" />
+    <Compile Include="Migrations\201910211654477_InitialCreate.Designer.cs">
+      <DependentUpon>201910211654477_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910212313027_Products.cs" />
+    <Compile Include="Migrations\201910212313027_Products.Designer.cs">
+      <DependentUpon>201910212313027_Products.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +79,14 @@
       <Project>{B0611D1E-6736-4A39-A9D7-0CCD52CA0FDD}</Project>
       <Name>SimpleWebShop.Data.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910211654477_InitialCreate.resx">
+      <DependentUpon>201910211654477_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910212313027_Products.resx">
+      <DependentUpon>201910212313027_Products.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

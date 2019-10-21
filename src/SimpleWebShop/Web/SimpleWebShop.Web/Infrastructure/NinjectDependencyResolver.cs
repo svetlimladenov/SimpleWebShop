@@ -1,4 +1,9 @@
-﻿namespace SimpleWebShop.Web.Infrastructure
+﻿using System.Data.Entity;
+using Ninject.Web.Common;
+using SimpleWebShop.Data;
+using SimpleWebShop.Data.Common;
+
+namespace SimpleWebShop.Web.Infrastructure
 {
     using System;
     using System.Collections.Generic;
@@ -29,6 +34,8 @@
         {
             // kernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
             // register services and bindings
+            kernel.Bind<DbContext>().To<ApplicationDbContext>();
+            kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>)).InRequestScope();
         }
     }
 }
