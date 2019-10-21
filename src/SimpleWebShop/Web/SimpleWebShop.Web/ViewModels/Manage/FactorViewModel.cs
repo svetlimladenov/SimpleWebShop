@@ -1,4 +1,4 @@
-﻿namespace SimpleWebShop.Web.Models
+﻿namespace SimpleWebShop.Web.ViewModels.Manage
 {
     public class FactorViewModel
     {

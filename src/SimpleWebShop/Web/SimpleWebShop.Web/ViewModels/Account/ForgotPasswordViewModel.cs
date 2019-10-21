@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace SimpleWebShop.Web.Models
+﻿namespace SimpleWebShop.Web.ViewModels.Account
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class ForgotPasswordViewModel
     {
         [Required]

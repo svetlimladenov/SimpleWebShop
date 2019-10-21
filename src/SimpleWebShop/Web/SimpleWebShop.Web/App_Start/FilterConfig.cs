@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace SimpleWebShop.Web
+﻿namespace SimpleWebShop.Web
 {
+    using System.Web.Mvc;
+
     public class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
