@@ -9,7 +9,7 @@ using SimpleWebShop.Data.Common.Models;
 namespace SimpleWebShop.Data.Common
 {
     public class DbRepository<T> : IDbRepository<T>
-        where T : BaseModel<int>
+        where T : class, IAuditInfo, IDeletableEntity
     {
         public DbRepository(DbContext context)
         {
@@ -36,22 +36,16 @@ namespace SimpleWebShop.Data.Common
             return this.DbSet;
         }
 
-        public T GetById(int id)
+        public T GetById(object id)
         {
-            throw new NotImplementedException();
+            var item = this.DbSet.Find(id);
+            if (item.IsDeleted)
+            {
+                return null;
+            }
+
+            return item;
         }
-
-        //public T GetById(object id)
-        //{
-        //    var item = this.DbSet.FirstOrDefault(x => x.Id == id);
-
-        //    //if (item.IsDeleted)
-        //    //{
-        //    //    return null;
-        //    //}
-
-        //    return item;
-        //}
 
         public void Add(T entity)
         {
@@ -74,5 +68,9 @@ namespace SimpleWebShop.Data.Common
             this.Context.SaveChanges();
         }
 
+        public void Dispose()
+        {
+            this.Context.Dispose();
+        }
     }
 }
