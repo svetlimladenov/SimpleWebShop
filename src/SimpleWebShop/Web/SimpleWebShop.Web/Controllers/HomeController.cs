@@ -1,13 +1,20 @@
 ﻿using System.Web.Mvc;
 using SimpleWebShop.Data;
+using SimpleWebShop.Web.Infrastructure;
 
 namespace SimpleWebShop.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ISomeService someService;
+
+        public HomeController(ISomeService someService)
+        {
+            this.someService = someService;
+        }
         public ActionResult Index()
         {
-            
+            someService.Work();
             return View();
         }
 
