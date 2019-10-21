@@ -62,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\SimpleWebShop.Data.Common\SimpleWebShop.Data.Common.csproj">
+      <Project>{1B53EA25-E2D3-48FA-BF66-EE11B8CB2049}</Project>
+      <Name>SimpleWebShop.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\SimpleWebShop.Data.Models\SimpleWebShop.Data.Models.csproj">
       <Project>{B0611D1E-6736-4A39-A9D7-0CCD52CA0FDD}</Project>
       <Name>SimpleWebShop.Data.Models</Name>
