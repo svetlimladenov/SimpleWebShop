@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using SimpleWebShop.Data.Models;
 
-namespace SimpleWebShop.Web.Models
+namespace SimpleWebShop.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

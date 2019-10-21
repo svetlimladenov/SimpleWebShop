@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using SimpleWebShop.Data;
 
 namespace SimpleWebShop.Web.Controllers
 {
@@ -10,6 +7,7 @@ namespace SimpleWebShop.Web.Controllers
     {
         public ActionResult Index()
         {
+            
             return View();
         }
 

@@ -189,7 +189,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ApplicationDbContext.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -201,7 +200,6 @@
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
-    <Compile Include="ViewModels\ApplicationUser.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Manage\ManageViewModels.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
@@ -319,6 +317,20 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\SimpleWebShop.Data.Common\SimpleWebShop.Data.Common.csproj">
+      <Project>{1b53ea25-e2d3-48fa-bf66-ee11b8cb2049}</Project>
+      <Name>SimpleWebShop.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\SimpleWebShop.Data.Models\SimpleWebShop.Data.Models.csproj">
+      <Project>{b0611d1e-6736-4a39-a9d7-0ccd52ca0fdd}</Project>
+      <Name>SimpleWebShop.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleWebShop.Data\SimpleWebShop.Data.csproj">
+      <Project>{3ff0fad4-4aeb-4c01-8863-af622113d943}</Project>
+      <Name>SimpleWebShop.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
