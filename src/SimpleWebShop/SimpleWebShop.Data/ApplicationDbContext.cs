@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.AccessControl;
 using Microsoft.AspNet.Identity.EntityFramework;
 using SimpleWebShop.Data.Common.Models;
 using SimpleWebShop.Data.Models;
@@ -20,6 +21,28 @@ namespace SimpleWebShop.Data
         }
 
         public IDbSet<Product> Products { get; set; }
+
+        public IDbSet<ProductImage> ProductImages { get; set; }
+
+        public IDbSet<ProductCategory> ProductCategories { get; set; }
+
+        public IDbSet<Order> Orders { get; set; }
+
+        public IDbSet<OrderDetail> OrderDetails { get; set; }
+
+        public IDbSet<Shipper> Shippers { get; set; }
+
+        public IDbSet<Payment> Payments { get; set; }
+
+        public IDbSet<Address> Addresses { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<OrderDetail>().HasKey(x => new { x.OrderId, x.ProductId});
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         public override int SaveChanges()
         {

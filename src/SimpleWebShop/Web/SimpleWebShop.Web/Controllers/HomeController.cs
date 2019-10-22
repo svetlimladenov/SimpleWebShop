@@ -9,16 +9,10 @@ namespace SimpleWebShop.Web.Controllers
 
     public class HomeController : Controller
     {
-        private readonly IDbRepository<Product> products;
-
-        public HomeController(IDbRepository<Product> products)
-        {
-            this.products = products;
-        }
         public ActionResult Index()
         {
-            var product = this.products.GetById("486d3ecc-fdd1-416a-881c-c26dc4826390");
-            return this.View(product);
+            
+            return this.View();
         }
     }
 }
