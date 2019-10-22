@@ -1,4 +1,8 @@
-﻿namespace SimpleWebShop.Web.Controllers
+﻿using System;
+using Microsoft.AspNet.Identity.EntityFramework;
+using SimpleWebShop.Data.Common;
+
+namespace SimpleWebShop.Web.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -19,14 +23,17 @@
         private ApplicationSignInManager signInManager;
         private ApplicationUserManager userManager;
 
-        public AccountController()
+        private readonly IDbRepository<ApplicationUser> users;
+
+        public AccountController(IDbRepository<ApplicationUser> users)
         {
+            this.users = users;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
+            this.signInManager = signInManager;
             this.UserManager = userManager;
-            this.SignInManager = signInManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -76,7 +83,7 @@
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await this.SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await this.SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -84,7 +91,7 @@
                 case SignInStatus.LockedOut:
                     return this.View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    return this.RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    return this.RedirectToAction("SendCode", new { ReturnUrl = returnUrl, model.RememberMe });
                 case SignInStatus.Failure:
                 default:
                     this.ModelState.AddModelError("", "Invalid login attempt.");
@@ -149,7 +156,7 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, CreatedOn = DateTime.UtcNow};
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
