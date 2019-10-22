@@ -1,4 +1,6 @@
-﻿namespace SimpleWebShop.Web
+﻿using SimpleWebShop.Web.Filters;
+
+namespace SimpleWebShop.Web
 {
     using System.Web.Mvc;
 
@@ -7,6 +9,7 @@
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            FilterProviders.Providers.Add(new AutoValidateAntiforgeryTokenAttribute());
         }
     }
 }
