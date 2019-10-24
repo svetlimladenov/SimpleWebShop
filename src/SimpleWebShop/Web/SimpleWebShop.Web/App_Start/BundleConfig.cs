@@ -17,7 +17,9 @@
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css"));
+                      "~/Content/css/bootstrap.min.css",
+                      "~/Content/css/mdb.min.css",
+                      "~/Content/css/style.css"));
         }
     }
 }
