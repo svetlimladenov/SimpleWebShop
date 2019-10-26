@@ -247,6 +247,7 @@
     <Content Include="Content\css\mdb.min.css" />
     <Content Include="Content\css\modules\animations-extended.css" />
     <Content Include="Content\css\modules\animations-extended.min.css" />
+    <Content Include="Content\css\sidebar.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\style.min.css" />
     <Content Include="Content\img\flags.png" />
@@ -433,6 +434,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="SimpleWebShop.Web.ruleset" />
+    <Content Include="Views\Shared\LayoutPartials\_NavPartial.cshtml" />
+    <Content Include="Views\Shared\LayoutPartials\_FooterPartial.cshtml" />
+    <Content Include="Views\Home\SecondIndex.cshtml" />
+    <Content Include="Views\Shared\LayoutPartials\_SideBarCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

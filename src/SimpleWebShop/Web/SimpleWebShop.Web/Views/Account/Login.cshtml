@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Log in";
 }
-<div class="row pt-4">
-    <div class="col-md-4 offset-md-2 col-sm-5 offset-sm-1 mt-5 login-form">
+<div class="row justify-content-center pt-4">
+    <div class="col-md-4 mt-5 login-form">
         <h2 class="text-left">Login</h2>
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal pt-3", role = "form" }))
@@ -24,11 +24,8 @@
                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                 </div>
                 <div class="row form-group">
-                    <div class="offset-md-4 col-md-4 text-center">
+                    <div class="offset-md-4 col-md-4 text-center pt-3">
                         <input type="submit" value="Log in" class="btn unique-color-dark text-white" />
-                        <p class="mt-2">
-                            @Html.ActionLink("Register as a new user", "Register")
-                        </p>
                     </div>
                 </div>
                 @* Enable this once you have account confirmation enabled for password reset functionality
@@ -38,11 +35,19 @@
             }
         </section>
     </div>
-    <div class="col-md-4 col-sm-5 mt-5">
+    <div class="col-md-4 mt-5">
         <h2 class="text-left">Register</h2>
-        <p class="pt-5">If you are a new customer, please register to be able to place orders for our products</p>
+        <p class="pt-1">If you are a new customer, please register to be able to place orders for our products</p>
+        <p>By creating your own account in addition to shopping, will also give you access to additional features such as:</p>
+        <ul>
+            <li>Tracking Orders</li>
+            <li>Shopping Cart</li>
+            <li>Archive orders</li>
+        </ul>
+        <div class="text-center">
+            @Html.ActionLink("Register","Register","Account",null, new {@class="btn unique-color-dark text-white"})
+        </div>
     </div>
-    <div class="col-md-2"></div>
 </div>
 
 @section Scripts {

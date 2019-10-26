@@ -1,0 +1,28 @@
+﻿.side-menu {
+    background-color: #1C2331;
+}
+
+    .side-menu ul {
+        padding: 0;
+    }
+
+        .side-menu ul li {
+            display: block;
+            text-align: left;
+            padding: 0.5rem 1rem;
+            transition: .35s;
+        }
+
+            .side-menu ul li:hover {
+                color: #BEC8CB;
+            }
+
+            .side-menu ul li a {
+                display: block;
+                color: white;
+                text-align: left;
+            }
+
+                .side-menu ul li a:hover {
+                    color: #BEC8CB;
+                }

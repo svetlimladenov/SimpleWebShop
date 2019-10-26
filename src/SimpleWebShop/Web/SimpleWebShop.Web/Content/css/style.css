@@ -12,12 +12,13 @@ html, body {
     border-right: 0.5px solid #ced4da;
 }
 
-.my-container {
+.global-container {
     min-height: 100%;
     position: relative;
 }
 
 #body {
+    margin-top: 1rem;
     padding-bottom:120px;   /* Height of the footer */
 }
 #footer {
@@ -29,4 +30,17 @@ html, body {
 
 .social-network-contacts {
     font-size: 1.25rem;
+}
+
+.nav-wrapper {
+    background: #1C2331;
+}
+
+nav.body-container {
+    box-shadow: none;
+}
+
+.body-container {
+    max-width: 80%;
+    margin: 0 auto;
 }
