@@ -14,10 +14,5 @@ namespace SimpleWebShop.Web.Controllers
         {
             return this.View();
         }
-
-        public ActionResult SecondIndex()
-        {
-            return this.View();
-        }
     }
 }

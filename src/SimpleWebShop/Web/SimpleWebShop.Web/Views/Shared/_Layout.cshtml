@@ -8,6 +8,7 @@
     <title>@ViewBag.Title</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    @RenderSection("styles", required: false)
     @Styles.Render("~/Content/css")
 </head>
 <body>
@@ -16,7 +17,7 @@
         <div class="body-container" id="body">
             @RenderBody()
         </div>
-        @Html.Partial("LayoutPartials/_FooterPartial");
+        @Html.Partial("LayoutPartials/_FooterPartial")
     </div>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="~/Content/js/jquery-3.4.1.min.js"></script>

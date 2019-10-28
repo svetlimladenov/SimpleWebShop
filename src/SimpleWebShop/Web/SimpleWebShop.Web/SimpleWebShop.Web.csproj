@@ -195,6 +195,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdministationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -239,6 +241,7 @@
     <Content Include="Content\css\addons\rating.min.css" />
     <Content Include="Content\css\addons\zmd.hierarchical-display.css" />
     <Content Include="Content\css\addons\zmd.hierarchical-display.min.css" />
+    <Content Include="Content\css\adminPanel.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\mdb.css" />
@@ -376,6 +379,9 @@
     <Content Include="Content\scss\mdb.scss" />
     <Content Include="Content\scss\_custom-styles.scss" />
     <Content Include="Content\scss\_custom-variables.scss" />
+    <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\Administration\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -436,11 +442,12 @@
     <Content Include="SimpleWebShop.Web.ruleset" />
     <Content Include="Views\Shared\LayoutPartials\_NavPartial.cshtml" />
     <Content Include="Views\Shared\LayoutPartials\_FooterPartial.cshtml" />
-    <Content Include="Views\Home\SecondIndex.cshtml" />
     <Content Include="Views\Shared\LayoutPartials\_SideBarCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
