@@ -3,7 +3,7 @@ using Ninject.Web.Common;
 using SimpleWebShop.Data;
 using SimpleWebShop.Data.Common;
 
-namespace SimpleWebShop.Web.Infrastructure
+namespace SimpleWebShop.Web
 {
     using System;
     using System.Collections.Generic;

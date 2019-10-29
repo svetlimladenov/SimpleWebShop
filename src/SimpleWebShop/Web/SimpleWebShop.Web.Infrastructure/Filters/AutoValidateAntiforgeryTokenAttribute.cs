@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
-namespace SimpleWebShop.Web.Filters
+namespace SimpleWebShop.Web.Infrastructure.Filters
 {
     public class AutoValidateAntiforgeryTokenAttribute : IFilterProvider
     {

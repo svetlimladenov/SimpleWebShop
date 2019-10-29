@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Glimpse.Core.Tab;
-using Trace = System.Diagnostics.Trace;
+﻿using System.Web;
 
-namespace SimpleWebShop.Web.Infrastructure.Modules
+namespace SimpleWebShop.Web.Modules
 {
     public class AddToRoleModule : IHttpModule
     {

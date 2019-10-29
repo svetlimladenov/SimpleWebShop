@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
-using System.Security.AccessControl;
 using Microsoft.AspNet.Identity.EntityFramework;
 using SimpleWebShop.Data.Common.Models;
 using SimpleWebShop.Data.Models;

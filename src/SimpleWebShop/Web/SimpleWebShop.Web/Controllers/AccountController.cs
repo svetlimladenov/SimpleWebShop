@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.AspNet.Identity.EntityFramework;
 using SimpleWebShop.Data.Common;
 
 namespace SimpleWebShop.Web.Controllers

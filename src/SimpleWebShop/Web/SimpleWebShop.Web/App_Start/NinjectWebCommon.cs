@@ -60,7 +60,7 @@ namespace SimpleWebShop.Web
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            System.Web.Mvc.DependencyResolver.SetResolver(new SimpleWebShop.Web.Infrastructure.NinjectDependencyResolver(kernel));
+            System.Web.Mvc.DependencyResolver.SetResolver(new SimpleWebShop.Web.NinjectDependencyResolver(kernel));
         }
     }
 }
