@@ -198,6 +198,8 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
@@ -381,7 +383,7 @@
     <Content Include="Content\scss\_custom-variables.scss" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Administration\Views\Administration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Navigation\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -463,6 +465,10 @@
     <ProjectReference Include="..\..\Data\SimpleWebShop.Data.Models\SimpleWebShop.Data.Models.csproj">
       <Project>{b0611d1e-6736-4a39-a9d7-0ccd52ca0fdd}</Project>
       <Name>SimpleWebShop.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleWebShop.Common\SimpleWebShop.Common\SimpleWebShop.Common.csproj">
+      <Project>{c99df608-64f0-43fd-bd89-f855a9d3ebb2}</Project>
+      <Name>SimpleWebShop.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimpleWebShop.Data\SimpleWebShop.Data.csproj">
       <Project>{3ff0fad4-4aeb-4c01-8863-af622113d943}</Project>
