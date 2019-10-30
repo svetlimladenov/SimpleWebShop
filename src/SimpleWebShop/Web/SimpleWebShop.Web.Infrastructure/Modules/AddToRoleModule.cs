@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace SimpleWebShop.Web.Modules
+namespace SimpleWebShop.Web.Infrastructure.Modules
 {
     public class AddToRoleModule : IHttpModule
     {

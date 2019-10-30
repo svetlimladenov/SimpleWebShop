@@ -203,7 +203,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
-    <Compile Include="Filters\AutoValidateAntiforgeryTokenAttribute.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -472,6 +471,10 @@
     <ProjectReference Include="..\..\SimpleWebShop.Data\SimpleWebShop.Data.csproj">
       <Project>{3ff0fad4-4aeb-4c01-8863-af622113d943}</Project>
       <Name>SimpleWebShop.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleWebShop.Web.Infrastructure\SimpleWebShop.Web.Infrastructure.csproj">
+      <Project>{b955437b-2d2f-4151-9ffa-581dc2d06b49}</Project>
+      <Name>SimpleWebShop.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

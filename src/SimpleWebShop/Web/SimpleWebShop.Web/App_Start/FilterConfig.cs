@@ -1,8 +1,7 @@
-﻿using SimpleWebShop.Web.Filters;
-
-namespace SimpleWebShop.Web
+﻿namespace SimpleWebShop.Web
 {
     using System.Web.Mvc;
+    using SimpleWebShop.Web.Infrastructure.Filters;
 
     public class FilterConfig
     {

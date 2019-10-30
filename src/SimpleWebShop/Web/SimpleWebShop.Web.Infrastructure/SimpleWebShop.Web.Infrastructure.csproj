@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{36FE9AF5-0F0F-44FE-B990-855AA1AA71DB}</ProjectGuid>
+    <ProjectGuid>{B955437B-2D2F-4151-9FFA-581DC2D06B49}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SimpleWebShop.Web.Infrastructure</RootNamespace>
@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Filters\AutoValidateAntiforgeryTokenAttribute.cs" />
+    <Compile Include="Modules\AddToRoleModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
