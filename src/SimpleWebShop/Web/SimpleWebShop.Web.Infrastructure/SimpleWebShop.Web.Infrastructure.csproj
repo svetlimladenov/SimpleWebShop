@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Filters\AutoValidateAntiforgeryTokenAttribute.cs" />
+    <Compile Include="HtmlHelpers\ActionLinkExtensions.cs" />
     <Compile Include="Modules\AddToRoleModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

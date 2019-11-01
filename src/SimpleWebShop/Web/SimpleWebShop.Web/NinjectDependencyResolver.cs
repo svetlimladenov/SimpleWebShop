@@ -2,6 +2,8 @@
 using Ninject.Web.Common;
 using SimpleWebShop.Data;
 using SimpleWebShop.Data.Common;
+using SimpleWebShop.Web.Services;
+using SimpleWebShop.Web.Services.Contracts;
 
 namespace SimpleWebShop.Web
 {
@@ -36,6 +38,9 @@ namespace SimpleWebShop.Web
             // register services and bindings
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
             kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>)).InRequestScope();
+            
+            //services
+            kernel.Bind<IUsersServices>().To<UsersServices>().InRequestScope();
         }
     }
 }

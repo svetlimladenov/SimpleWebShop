@@ -3,7 +3,7 @@ using SimpleWebShop.Web.Controllers;
 
 namespace SimpleWebShop.Web.Areas.Administration.Controllers
 {
-    public class NavigationController : AdministrationBaseController
+    public class DashboardController : AdministrationBaseController
     {
         public ActionResult Index()
         {

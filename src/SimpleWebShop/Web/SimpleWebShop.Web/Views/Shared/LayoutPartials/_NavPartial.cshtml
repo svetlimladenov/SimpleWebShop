@@ -30,7 +30,7 @@
                              aria-labelledby="navbarDropdownMenuLink-333">
                             @if (this.User.IsInRole("Administrator"))
                             {
-                                @Html.ActionLink("Administration", "Index", "Navigation", new {area = "Administration"}, new {@class = "dropdown-item"})
+                                @Html.ActionLink("Administration", "Index", "Dashboard", new {area = "Administration"}, new {@class = "dropdown-item"})
                             }
 
                             @Html.ActionLink("My Profile", "Index", "Manage", new {area = ""}, new {@class = "dropdown-item"})

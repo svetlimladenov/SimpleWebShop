@@ -6,7 +6,6 @@
     <title>@ViewBag.Title</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    @RenderSection("styles", required: false)
     @Styles.Render("~/Content/css")
 </head>
 <body>
@@ -17,14 +16,8 @@
         </div>
         @Html.Partial("LayoutPartials/_FooterPartial")
     </div>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="~/Content/js/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="~/Content/js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Content/js/mdb.min.js"></script>
 
+    @Scripts.Render("~/Content/js/bundles")
     @RenderSection("scripts", required: false)
 </body>
 </html>

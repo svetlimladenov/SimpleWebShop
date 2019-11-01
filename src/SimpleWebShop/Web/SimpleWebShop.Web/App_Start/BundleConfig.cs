@@ -21,6 +21,15 @@
                       "~/Content/css/mdb.min.css",
                       "~/Content/css/style.css",
                       "~/Content/css/sidebar.css"));
+
+            bundles.Add(new StyleBundle("~/Content/AdminCss").Include(
+                    "~/Content/css/adminPanel.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/js/bundles").Include(
+                    "~/Content/js/jquery-3.4.1.min.js",
+                    "~/Content/js/popper.min.js",
+                    "~/Content/js/bootstrap.min.js",
+                    "~/Content/js/mdb.min.js"));
         }
     }
 }

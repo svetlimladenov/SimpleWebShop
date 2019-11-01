@@ -1,0 +1,43 @@
+﻿@using SimpleWebShop.Web.Infrastructure.HtmlHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    @Styles.Render("~/Content/AdminCss")
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="global-container">
+        @Html.Partial("~/Views/Shared/LayoutPartials/_NavPartial.cshtml")
+        <div class="body-container" id="body">
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="main-menu">
+                        <li>
+                            @Html.ActionLinkFontAwesome("Index", "Dashboard", "Administration", "fa fa-desktop", "Dashboard")
+                        </li>
+                        <li>
+                            @Html.ActionLinkFontAwesome("Index", "ControllProducts", "Administration", "fab fa-product-hunt", "Products")
+                        </li>
+                        <li>
+                            <a href="blank.html"><i class="fa fa-edit "></i>Blank Page</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="page-wrapper">
+                <div id="page-inner">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        @Html.Partial("~/Views/Shared/LayoutPartials/_FooterPartial.cshtml")
+    </div>
+
+    @Scripts.Render("~/Content/js/bundles")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
