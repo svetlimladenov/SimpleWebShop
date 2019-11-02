@@ -16,6 +16,7 @@ namespace SimpleWebShop.Data.Models
         public ApplicationUser()
         {
             this.Orders = new HashSet<Order>();
+            this.SupportMessages = new HashSet<SupportMessage>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -45,6 +46,8 @@ namespace SimpleWebShop.Data.Models
         public DateTime? DeletedOn { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+
+        public virtual ICollection<SupportMessage> SupportMessages { get; set; }
 
     }
 }

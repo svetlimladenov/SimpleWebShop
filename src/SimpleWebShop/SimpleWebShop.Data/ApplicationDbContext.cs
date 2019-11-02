@@ -35,6 +35,8 @@ namespace SimpleWebShop.Data
 
         public IDbSet<Address> Addresses { get; set; }
 
+        public IDbSet<SupportMessage> SupportMessages { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
