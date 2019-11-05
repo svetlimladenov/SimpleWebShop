@@ -7,11 +7,12 @@ using SimpleWebShop.Web.Controllers;
 
 namespace SimpleWebShop.Web.Areas.Administration.Controllers
 {
-    public class ControllProductsController : AdministrationBaseController
+    public class ProductsAdministrationController : AdministrationBaseController
     {
+        // GET: Administration/ProductsAdministration
         public ActionResult Index()
         {
-            return this.View();
+            return View();
         }
     }
 }

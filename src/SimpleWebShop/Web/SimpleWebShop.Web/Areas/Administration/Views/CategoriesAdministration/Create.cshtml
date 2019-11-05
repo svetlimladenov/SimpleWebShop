@@ -1,0 +1,28 @@
+﻿@model SimpleWebShop.Web.Areas.Administration.ViewModels.CreateCategoryInputModel
+@{
+    ViewBag.Title = "Index";
+}
+<h1>Create Category</h1>
+@using (Html.BeginForm("Create", "CategoriesAdministration", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-row">
+        <div class="form-group">
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name, new {@class="form-control"})
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            @Html.LabelFor(x => x.Description)
+            @Html.TextAreaFor(x => x.Description, new {@class="form-control"})
+            @Html.ValidationMessageFor(x => x.Description)
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

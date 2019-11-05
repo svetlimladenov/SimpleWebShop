@@ -212,11 +212,15 @@
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Controllers\AdministationController.cs" />
-    <Compile Include="Areas\Administration\Controllers\ControllProductsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CategoriesAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ProductsAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SupportController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\ViewModels\AllUsersViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\BasicUserViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CreateCategoryInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\ProductsControlViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -229,6 +233,8 @@
     </Compile>
     <Compile Include="NinjectDependencyResolver.cs" />
     <Compile Include="Services\Contracts\IUsersServices.cs" />
+    <Compile Include="Services\Contracts\IProductsControlPanelServices.cs" />
+    <Compile Include="Services\ProductsControlPanelServices.cs" />
     <Compile Include="Services\UsersServices.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -406,7 +412,10 @@
     <Content Include="Areas\Administration\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdministrationLayout.cshtml" />
-    <Content Include="Areas\Administration\Views\ControllProducts\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Dashboard\ProductsControlPanel.cshtml" />
+    <Content Include="Areas\Administration\Views\Support\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\CategoriesAdministration\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\ProductsAdministration\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

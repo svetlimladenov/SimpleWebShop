@@ -18,7 +18,21 @@
         </div>
     </div>
 </div>
-<!-- /. ROW  -->
+<h2 class="text-left">Users</h2>
+<div class="row justify-content-between text-center pad-top">
+    <div class="col">
+        <div class="div-square">
+            @Html.ActionLinkFontAwesomeWithHeading("Index", "Users", "Administration", "fas fa-users fa-2x", "Users")
+        </div>
+    </div>
+    <div class="col">
+        <div class="div-square">
+            @Html.ActionLinkFontAwesomeWithHeading("Index", "Support ", "Administration", "fas fa-question-circle fa-2x", "Support")
+        </div>
+    </div>
+</div>
+
+<h2 class="text-left">Debug</h2>
 <div class="row justify-content-between text-center pad-top">
     <div class="col">
         <div class="div-square">
@@ -30,14 +44,9 @@
     </div>
     <div class="col">
         <div class="div-square">
-            @Html.ActionLinkFontAwesomeWithHeading("Index", "Users", "Administration", "fas fa-users fa-2x", "Users")
-        </div>
-    </div>
-    <div class="col">
-        <div class="div-square">
-            <a href="blank.html">
-                <i class="fa fa fa-clipboard fa-2x"></i>
-                <h4>Check Data</h4>
+            <a href="https://localhost:44333/elmah">
+                <i class="fas fa-bug fa-2x"></i>
+                <h4>Elmah</h4>
             </a>
         </div>
     </div>

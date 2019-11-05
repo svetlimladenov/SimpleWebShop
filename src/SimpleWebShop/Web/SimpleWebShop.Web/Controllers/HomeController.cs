@@ -1,4 +1,6 @@
-﻿namespace SimpleWebShop.Web.Controllers
+﻿using System.Web.UI;
+
+namespace SimpleWebShop.Web.Controllers
 {
     using System.Web.Mvc;
 
