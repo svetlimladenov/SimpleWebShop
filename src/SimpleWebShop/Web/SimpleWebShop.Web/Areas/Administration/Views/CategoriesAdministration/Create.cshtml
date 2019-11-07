@@ -3,25 +3,29 @@
     ViewBag.Title = "Index";
 }
 <h1>Create Category</h1>
-@using (Html.BeginForm("Create", "CategoriesAdministration", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <div class="form-row">
-        <div class="form-group">
+<div class="col-md-10">
+    @using (Html.BeginForm("Create", "CategoriesAdministration", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div>
             @Html.LabelFor(x => x.Name)
-            @Html.TextBoxFor(x => x.Name, new {@class="form-control"})
+            @Html.TextBoxFor(x => x.Name, new {@class = "form-control", placeholder = nameof(Model.Name)})
             @Html.ValidationMessageFor(x => x.Name)
         </div>
-    </div>
-    <div class="form-row">
         <div class="form-group">
             @Html.LabelFor(x => x.Description)
-            @Html.TextAreaFor(x => x.Description, new {@class="form-control"})
+            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", placeholder = nameof(Model.Description)})
             @Html.ValidationMessageFor(x => x.Description)
         </div>
-    </div>
-    <button type="submit" class="btn btn-success">Create</button>
-}
+        <div>
+            @Html.LabelFor(x => x.IconClass)
+            @Html.DropDownList(nameof(Model.IconClass),
+                new SelectList(Model.AllFontAwesomeIcons),
+                new {@class = "form-control"})
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+    }
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

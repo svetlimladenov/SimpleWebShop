@@ -4,7 +4,7 @@ using SimpleWebShop.Common;
 namespace SimpleWebShop.Web.Controllers
 {
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-    public class AdministrationBaseController :  BaseController
+    public class AdministrationBaseController : BaseController
     {
     }
 }

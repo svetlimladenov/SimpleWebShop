@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201911021428143_SupportMessagesAdded.Designer.cs">
       <DependentUpon>201911021428143_SupportMessagesAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911072129465_AddedInconsToCategories.cs" />
+    <Compile Include="Migrations\201911072129465_AddedInconsToCategories.Designer.cs">
+      <DependentUpon>201911072129465_AddedInconsToCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911021428143_SupportMessagesAdded.resx">
       <DependentUpon>201911021428143_SupportMessagesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911072129465_AddedInconsToCategories.resx">
+      <DependentUpon>201911072129465_AddedInconsToCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

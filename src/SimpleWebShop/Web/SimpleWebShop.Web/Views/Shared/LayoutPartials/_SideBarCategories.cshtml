@@ -1,25 +1,17 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark unique-color-dark">
+﻿@model SimpleWebShop.Web.ViewModels.Home.HomeIndexViewModel
+<nav class="navbar navbar-expand-lg navbar-dark unique-color-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" style="flex-direction: column">
-            <li class="nav-item">
-
-                <a class="nav-link" href="#"><i class="fas fa-tv"></i> TV, Video Gaming</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-mobile"></i> Phones and Tablets</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-camera"></i> Camera and Video Cameras</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-laptop"></i> Laptops, PCs and Hardware</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-keyboard"></i> PC accessories</a>
-            </li>
+            
+           @foreach (var category in Model.CategoriesLinks)
+           {
+               <li class="nav-item">
+                   <a class="nav-link" href="#"><i class="fas fa-@category.IconClass"></i> @category.Name</a>
+               </li>
+           }
         </ul>
     </div>
 </nav>

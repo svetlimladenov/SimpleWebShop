@@ -42,6 +42,7 @@ namespace SimpleWebShop.Web
             //services
             kernel.Bind<IUsersServices>().To<UsersServices>().InRequestScope();
             kernel.Bind<IProductsControlPanelServices>().To<ProductsControlPanelServices>().InRequestScope();
+            kernel.Bind<ICategoriesServices>().To<CategoriesServices>().InRequestScope();
         }
     }
 }
