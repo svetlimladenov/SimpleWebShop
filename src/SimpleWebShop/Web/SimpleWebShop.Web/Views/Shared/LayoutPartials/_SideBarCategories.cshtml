@@ -1,17 +1,10 @@
-﻿@model SimpleWebShop.Web.ViewModels.Home.HomeIndexViewModel
-<nav class="navbar navbar-expand-lg navbar-dark unique-color-dark">
+﻿<nav class="navbar navbar-expand-lg navbar-dark unique-color-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav" style="flex-direction: column">
-            
-           @foreach (var category in Model.CategoriesLinks)
-           {
-               <li class="nav-item">
-                   <a class="nav-link" href="#"><i class="fas fa-@category.IconClass"></i> @category.Name</a>
-               </li>
-           }
+        <ul class="navbar-nav" style="flex-direction: column" id="sidebarCategories">
+            @*categories added via ajax*@
         </ul>
     </div>
 </nav>

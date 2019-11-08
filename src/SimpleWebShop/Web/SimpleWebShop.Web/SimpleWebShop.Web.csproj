@@ -330,6 +330,7 @@
     <Content Include="Content\js\modules\waves.js" />
     <Content Include="Content\js\modules\wow.js" />
     <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\scripts.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\addons\datatables-select.js" />

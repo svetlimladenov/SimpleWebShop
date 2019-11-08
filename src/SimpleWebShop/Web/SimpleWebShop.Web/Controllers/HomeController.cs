@@ -1,4 +1,6 @@
-﻿using System.Web.UI;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.UI;
 using SimpleWebShop.Web.Services.Contracts;
 using SimpleWebShop.Web.ViewModels.Home;
 
@@ -16,11 +18,13 @@ namespace SimpleWebShop.Web.Controllers
         }
         public ActionResult Index()
         {
-            var model = new HomeIndexViewModel()
-            {
-                CategoriesLinks = this.categoriesServices.GetCategoriesForLinks()
-            };
-            return this.View(model);
+            return this.View();
+        }
+
+        [HttpGet]   
+        public ActionResult Categories()
+        {
+            return Json(this.categoriesServices.GetCategoriesForLinks().ToList(), JsonRequestBehavior.AllowGet);
         }
     }
 }
