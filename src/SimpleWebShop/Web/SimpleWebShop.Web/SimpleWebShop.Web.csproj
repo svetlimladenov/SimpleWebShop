@@ -219,6 +219,7 @@
     <Compile Include="Areas\Administration\ViewModels\AllUsersViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\BasicUserViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CreateCategoryInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CreateProductInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ProductsControlViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministrationBaseController.cs" />
@@ -315,6 +316,7 @@
     <Content Include="Content\js\addons\rating.min.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\deleteCategory.js" />
     <Content Include="Content\js\jquery-3.4.1.min.js" />
     <Content Include="Content\js\mdb.js" />
     <Content Include="Content\js\mdb.min.js" />
@@ -419,7 +421,9 @@
     <Content Include="Areas\Administration\Views\Dashboard\ProductsControlPanel.cshtml" />
     <Content Include="Areas\Administration\Views\Support\Index.cshtml" />
     <Content Include="Areas\Administration\Views\CategoriesAdministration\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\ProductsAdministration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\ProductsAdministration\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\CategoriesAdministration\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\CategoriesAdministration\All.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -22,6 +22,7 @@ namespace SimpleWebShop.Web.Controllers
         }
 
         [HttpGet]   
+        //[OutputCache(Duration = 5 * 60, Location = OutputCacheLocation.ServerAndClient)]
         public ActionResult Categories()
         {
             return Json(this.categoriesServices.GetCategoriesForLinks().ToList(), JsonRequestBehavior.AllowGet);

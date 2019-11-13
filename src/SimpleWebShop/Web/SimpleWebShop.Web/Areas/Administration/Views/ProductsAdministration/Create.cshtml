@@ -1,0 +1,17 @@
+﻿@model SimpleWebShop.Web.Areas.Administration.ViewModels.CreateProductInputModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Create Product</h1>
+<div class="col-md-10">
+    @using (Html.BeginForm("Create", "ProductsAdministration", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="row justify-content-center mt-3">
+            <button type="submit" class="btn btn-success">Create</button>
+        </div>
+    }
+</div>
+

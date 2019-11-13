@@ -16,7 +16,7 @@ namespace SimpleWebShop.Web.Areas.Administration.ViewModels
         [MinLength(10,ErrorMessage = "The Description should be at least 10 symbols ")]
         public string Description { get; set; }
 
-        [Required]
+        [Required]  
         public string IconClass { get; set; }
 
         public List<string> AllFontAwesomeIcons { get; set; }

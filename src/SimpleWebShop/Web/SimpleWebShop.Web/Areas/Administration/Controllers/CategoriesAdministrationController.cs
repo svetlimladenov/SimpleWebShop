@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SimpleWebShop.Common;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;
 using SimpleWebShop.Web.Controllers;
+using SimpleWebShop.Web.Infrastructure.Filters;
 using SimpleWebShop.Web.Services.Contracts;
 
 namespace SimpleWebShop.Web.Areas.Administration.Controllers
@@ -40,6 +42,26 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
 
             this.categoriesServices.CreateCategory(inputModel);
             return this.RedirectToAction("ProductsControlPanel", "Dashboard");
+        }
+
+        public ActionResult All()
+        {
+            var viewModel = this.categoriesServices.GetAllCategories();
+            return this.View(viewModel);
+        }
+
+        public ActionResult Edit(string id)
+        {
+            ViewData["id"] = id;
+            return this.View();
+        }
+
+        [HttpPost]
+        [DisableAntiForgeryCheck]
+        public JsonResult Delete([Required]string id)
+        {
+            this.categoriesServices.DeleteCategory(id);
+            return this.Json(new[] {id});
         }
     }
 }

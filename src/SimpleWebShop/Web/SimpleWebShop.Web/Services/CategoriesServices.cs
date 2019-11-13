@@ -33,7 +33,7 @@ namespace SimpleWebShop.Web.Services
 
         public ICollection<CategoriesWithNameAndIcon> GetCategoriesForLinks()
         {
-            var classesAndNames = this.categoriesRepository.All().Select(x => new CategoriesWithNameAndIcon
+            var classesAndNames = this.categoriesRepository.All().OrderBy(x => x.CreatedOn).Select(x => new CategoriesWithNameAndIcon
             {
                 Id = x.Id,
                 Name = x.Name,
@@ -43,5 +43,22 @@ namespace SimpleWebShop.Web.Services
             return classesAndNames;
         }
 
+        public ICollection<CategoriesWithNameAndIcon> GetAllCategories()
+        {
+            var result = this.categoriesRepository.All().Select(x => new CategoriesWithNameAndIcon()
+            {
+                Id = x.Id,
+                IconClass = x.IconClass,
+                Name = x.Name
+            }).ToList();
+            return result;
+        }
+
+        public void DeleteCategory(string id)
+        {
+            var categoryToDelete = this.categoriesRepository.GetById(id);
+            this.categoriesRepository.Delete(categoryToDelete);
+            this.categoriesRepository.Save();
+        }
     }
 }

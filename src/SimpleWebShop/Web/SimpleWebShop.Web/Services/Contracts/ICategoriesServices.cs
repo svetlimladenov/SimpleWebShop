@@ -13,5 +13,8 @@ namespace SimpleWebShop.Web.Services.Contracts
         void CreateCategory(CreateCategoryInputModel inputModel);
 
         ICollection<CategoriesWithNameAndIcon> GetCategoriesForLinks();
+
+        ICollection<CategoriesWithNameAndIcon> GetAllCategories();
+        void DeleteCategory(string id);
     }
 }
