@@ -9,6 +9,7 @@ namespace SimpleWebShop.Web.Infrastructure.Filters
     {
         public IEnumerable<Filter> GetFilters(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
         {
+
             //take all filters  
             IEnumerable<FilterAttribute> filters = actionDescriptor.GetFilterAttributes(true);
 
@@ -18,9 +19,10 @@ namespace SimpleWebShop.Web.Infrastructure.Filters
             //gets the method
             string method = controllerContext.HttpContext.Request.HttpMethod;
 
+            bool isAjax = controllerContext.HttpContext.Request.IsAjaxRequest();
+
             //if there is no disableAntiForgeryFilter and the method is POST
-            if (!disableAntiForgery
-                && String.Equals(method, "POST", StringComparison.OrdinalIgnoreCase))
+            if (!disableAntiForgery && !isAjax && String.Equals(method, "POST", StringComparison.OrdinalIgnoreCase))
             {
                 yield return new Filter(new ValidateAntiForgeryTokenAttribute(), FilterScope.Global, null);
             }
