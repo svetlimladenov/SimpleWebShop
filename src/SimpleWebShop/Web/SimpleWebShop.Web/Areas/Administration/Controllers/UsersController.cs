@@ -19,7 +19,6 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         // GET: Administration/Users
         public ActionResult Index()
         {
-            //return all users 
             //TODO: Create certain pages for admins and deleted users
             var viewModel = this.usersServices.GetAllUsers();
             return View(viewModel);
