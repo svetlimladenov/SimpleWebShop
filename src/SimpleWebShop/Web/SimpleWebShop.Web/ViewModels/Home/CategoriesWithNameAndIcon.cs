@@ -1,6 +1,9 @@
-﻿namespace SimpleWebShop.Web.ViewModels.Home
+﻿using SimpleWebShop.Data.Models;
+using SimpleWebShop.Services.Mapping;
+
+namespace SimpleWebShop.Web.ViewModels.Home
 {
-    public class CategoriesWithNameAndIcon
+    public class CategoriesWithNameAndIcon : IMapFrom<ProductCategory>
     {
         public string Name { get; set; }
 

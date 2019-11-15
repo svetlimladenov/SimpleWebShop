@@ -501,6 +501,10 @@
       <Project>{b0611d1e-6736-4a39-a9d7-0ccd52ca0fdd}</Project>
       <Name>SimpleWebShop.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\SimpleWebShop.Services.Mapping\SimpleWebShop.Services.Mapping.csproj">
+      <Project>{86D4B97D-AA55-4420-9967-240E90072562}</Project>
+      <Name>SimpleWebShop.Services.Mapping</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SimpleWebShop.Common\SimpleWebShop.Common\SimpleWebShop.Common.csproj">
       <Project>{c99df608-64f0-43fd-bd89-f855a9d3ebb2}</Project>
       <Name>SimpleWebShop.Common</Name>

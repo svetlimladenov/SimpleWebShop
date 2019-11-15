@@ -6,6 +6,7 @@ using SimpleWebShop.Data.Models;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;
 using SimpleWebShop.Web.Services.Contracts;
 using SimpleWebShop.Web.ViewModels.Home;
+using SimpleWebShop.Services.Mapping;
 
 namespace SimpleWebShop.Web.Services
 {
@@ -33,24 +34,22 @@ namespace SimpleWebShop.Web.Services
 
         public ICollection<CategoriesWithNameAndIcon> GetCategoriesForLinks()
         {
-            var classesAndNames = this.categoriesRepository.All().OrderBy(x => x.CreatedOn).Select(x => new CategoriesWithNameAndIcon
-            {
-                Id = x.Id,
-                Name = x.Name,
-                IconClass = x.IconClass
-            }).ToList();
+            //var classesAndNames = this.categoriesRepository.All().OrderBy(x => x.CreatedOn)
+            //    .Select(x => new CategoriesWithNameAndIcon
+            //    {
+            //        Id = x.Id,
+            //        Name = x.Name,
+            //        IconClass = x.IconClass
+            //    }).ToList();
+
+            var classesAndNames = this.categoriesRepository.All().OrderBy(x => x.CreatedOn).To<CategoriesWithNameAndIcon>().ToArray();
 
             return classesAndNames;
         }
 
         public ICollection<CategoriesWithNameAndIcon> GetAllCategories()
         {
-            var result = this.categoriesRepository.All().Select(x => new CategoriesWithNameAndIcon()
-            {
-                Id = x.Id,
-                IconClass = x.IconClass,
-                Name = x.Name
-            }).ToList();
+            var result = this.categoriesRepository.All().To<CategoriesWithNameAndIcon>().ToList();
             return result;
         }
 

@@ -1,9 +1,11 @@
 using System.Data.Entity;
+using System.Reflection;
 using SimpleWebShop.Data;
 using SimpleWebShop.Data.Migrations;
 
 namespace SimpleWebShop.Web
 {
+    using SimpleWebShop.Services.Mapping;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
@@ -20,6 +22,7 @@ namespace SimpleWebShop.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AutoMapperConfig.RegisterMappings(Assembly.GetExecutingAssembly());
         }
     }
 }
