@@ -2,19 +2,22 @@
 using System.Linq;
 using System.Web.Mvc;
 using SimpleWebShop.Common;
+using SimpleWebShop.Services.Data.Contracts;
+using SimpleWebShop.Web.Areas.Administration.Services;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;
 using SimpleWebShop.Web.Controllers;
-using SimpleWebShop.Web.Services.Contracts;
 
 namespace SimpleWebShop.Web.Areas.Administration.Controllers
 {
     public class CategoriesAdministrationController : AdministrationBaseController
     {
         private readonly ICategoriesServices categoriesServices;
+        private readonly IAdminCategoriesServices adminCategoriesServices;
 
-        public CategoriesAdministrationController(ICategoriesServices categoriesServices)
+        public CategoriesAdministrationController(ICategoriesServices categoriesServices, IAdminCategoriesServices adminCategoriesServices)
         {
             this.categoriesServices = categoriesServices;
+            this.adminCategoriesServices = adminCategoriesServices;
         }
 
         public ActionResult Create()
@@ -36,7 +39,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
                 return this.View();
             }
 
-            this.categoriesServices.CreateCategory(inputModel);
+            this.adminCategoriesServices.CreateCategory(inputModel);
             return this.RedirectToAction("ProductsControlPanel", "Dashboard");
         }
 
@@ -55,7 +58,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         [HttpPost]
         public JsonResult Delete([Required]string id)
         {
-            this.categoriesServices.DeleteCategory(id);
+            this.adminCategoriesServices.DeleteCategory(id);
             return this.Json(new[] {id});
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
+using SimpleWebShop.Services.Data.Contracts;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;
 using SimpleWebShop.Web.Controllers;
-using SimpleWebShop.Web.Services.Contracts;
 
 namespace SimpleWebShop.Web.Areas.Administration.Controllers
 {

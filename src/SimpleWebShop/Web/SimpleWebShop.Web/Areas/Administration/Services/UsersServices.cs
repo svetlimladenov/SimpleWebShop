@@ -1,10 +1,9 @@
 ﻿using System.Linq;
 using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
-using SimpleWebShop.Services.Data.Contracts;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;
 
-namespace SimpleWebShop.Services.Data
+namespace SimpleWebShop.Web.Areas.Administration.Services
 {
     public class UsersServices : IUsersServices
     {

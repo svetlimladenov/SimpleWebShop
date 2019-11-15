@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using SimpleWebShop.Data.Common;
+using SimpleWebShop.Services.Models.ViewModels.Account;
 
 namespace SimpleWebShop.Web.Controllers
 {
@@ -11,7 +13,6 @@ namespace SimpleWebShop.Web.Controllers
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using SimpleWebShop.Data.Models;
-    using SimpleWebShop.Web.ViewModels.Account;
 
     [Authorize]
     public class AccountController : Controller
@@ -478,5 +479,16 @@ namespace SimpleWebShop.Web.Controllers
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, this.LoginProvider);
             }
         }
+    }
+
+    public class SendCodeViewModel
+    {
+        public string SelectedProvider { get; set; }
+
+        public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+
+        public string ReturnUrl { get; set; }
+
+        public bool RememberMe { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using SimpleWebShop.Web.Areas.Administration.ViewModels;
 
-namespace SimpleWebShop.Services.Data.Contracts
+namespace SimpleWebShop.Web.Areas.Administration.Services
 {
     public interface IUsersServices
     {

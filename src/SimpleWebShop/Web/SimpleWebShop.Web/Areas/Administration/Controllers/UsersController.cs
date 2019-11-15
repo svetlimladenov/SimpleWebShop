@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
+using SimpleWebShop.Web.Areas.Administration.Services;
 using SimpleWebShop.Web.Controllers;
-using SimpleWebShop.Web.Services.Contracts;
 
 namespace SimpleWebShop.Web.Areas.Administration.Controllers
 {

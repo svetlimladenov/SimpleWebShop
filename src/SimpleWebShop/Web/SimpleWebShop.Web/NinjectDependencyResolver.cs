@@ -2,8 +2,9 @@
 using Ninject.Web.Common;
 using SimpleWebShop.Data;
 using SimpleWebShop.Data.Common;
-using SimpleWebShop.Web.Services;
-using SimpleWebShop.Web.Services.Contracts;
+using SimpleWebShop.Services.Data;
+using SimpleWebShop.Services.Data.Contracts;
+using SimpleWebShop.Web.Areas.Administration.Services;
 
 namespace SimpleWebShop.Web
 {
@@ -43,6 +44,7 @@ namespace SimpleWebShop.Web
             kernel.Bind<IUsersServices>().To<UsersServices>().InRequestScope();
             kernel.Bind<IProductsControlPanelServices>().To<ProductsControlPanelServices>().InRequestScope();
             kernel.Bind<ICategoriesServices>().To<CategoriesServices>().InRequestScope();
+            kernel.Bind<IAdminCategoriesServices>().To<AdminCategoriesServices>().InRequestScope();
         }
     }
 }

@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebShop.Services.Mapp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebShop.Services.Data", "Services\SimpleWebShop.Services.Data\SimpleWebShop.Services.Data.csproj", "{CC8D0648-57A4-4811-B03A-926C9C177AAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebShop.Services.Models", "Services\SimpleWebShop.Services.Models\SimpleWebShop.Services.Models.csproj", "{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{CC8D0648-57A4-4811-B03A-926C9C177AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC8D0648-57A4-4811-B03A-926C9C177AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC8D0648-57A4-4811-B03A-926C9C177AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{B955437B-2D2F-4151-9FFA-581DC2D06B49} = {E5962153-2A37-4BA7-A6CC-DDA0B24C4236}
 		{86D4B97D-AA55-4420-9967-240E90072562} = {20391300-9D54-4BC9-A0A6-97E41B623299}
 		{CC8D0648-57A4-4811-B03A-926C9C177AAF} = {20391300-9D54-4BC9-A0A6-97E41B623299}
+		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875} = {20391300-9D54-4BC9-A0A6-97E41B623299}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9233A37B-A308-4394-A175-80AE96CAAE94}

@@ -216,6 +216,10 @@
     <Compile Include="Areas\Administration\Controllers\ProductsAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\SupportController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administration\Services\AdminCategoriesServices.cs" />
+    <Compile Include="Areas\Administration\Services\IAdminCategoriesServices.cs" />
+    <Compile Include="Areas\Administration\Services\IUsersServices.cs" />
+    <Compile Include="Areas\Administration\Services\UsersServices.cs" />
     <Compile Include="Areas\Administration\ViewModels\AllUsersViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\BasicUserViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CreateCategoryInputModel.cs" />
@@ -232,31 +236,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="NinjectDependencyResolver.cs" />
-    <Compile Include="Services\CategoriesServices.cs" />
-    <Compile Include="Services\Contracts\ICategoriesServices.cs" />
-    <Compile Include="Services\Contracts\IUsersServices.cs" />
-    <Compile Include="Services\Contracts\IProductsControlPanelServices.cs" />
-    <Compile Include="Services\ProductsControlPanelServices.cs" />
-    <Compile Include="Services\UsersServices.cs" />
-    <Compile Include="ViewModels\Home\CategoriesWithNameAndIcon.cs" />
-    <Compile Include="ViewModels\Home\HomeIndexViewModel.cs" />
-    <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
-    <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
-    <Compile Include="ViewModels\Manage\IndexViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
-    <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
-    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
-    <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
-    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ManageViewModels.cs" />
-    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
-    <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
-    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -501,9 +480,17 @@
       <Project>{b0611d1e-6736-4a39-a9d7-0ccd52ca0fdd}</Project>
       <Name>SimpleWebShop.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\SimpleWebShop.Services.Data\SimpleWebShop.Services.Data.csproj">
+      <Project>{cc8d0648-57a4-4811-b03a-926c9c177aaf}</Project>
+      <Name>SimpleWebShop.Services.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\SimpleWebShop.Services.Mapping\SimpleWebShop.Services.Mapping.csproj">
       <Project>{86D4B97D-AA55-4420-9967-240E90072562}</Project>
       <Name>SimpleWebShop.Services.Mapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\SimpleWebShop.Services.Models\SimpleWebShop.Services.Models.csproj">
+      <Project>{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}</Project>
+      <Name>SimpleWebShop.Services.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SimpleWebShop.Common\SimpleWebShop.Common\SimpleWebShop.Common.csproj">
       <Project>{c99df608-64f0-43fd-bd89-f855a9d3ebb2}</Project>

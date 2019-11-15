@@ -1,4 +1,6 @@
-﻿namespace SimpleWebShop.Web.Controllers
+﻿using SimpleWebShop.Services.Models.ViewModels.Manage;
+
+namespace SimpleWebShop.Web.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -7,7 +9,6 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
-    using SimpleWebShop.Web.ViewModels.Manage;
 
     [Authorize]
     public class ManageController : Controller

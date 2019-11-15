@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using SimpleWebShop.Web.Services.Contracts;
+using SimpleWebShop.Services.Data.Contracts;
 
 namespace SimpleWebShop.Web.Controllers
 {
