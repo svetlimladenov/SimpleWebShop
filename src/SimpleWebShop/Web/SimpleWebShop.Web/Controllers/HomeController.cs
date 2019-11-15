@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI;
+﻿using System.Linq;
 using SimpleWebShop.Web.Services.Contracts;
-using SimpleWebShop.Web.ViewModels.Home;
 
 namespace SimpleWebShop.Web.Controllers
 {

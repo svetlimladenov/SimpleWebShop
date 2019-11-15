@@ -9,7 +9,6 @@ namespace SimpleWebShop.Web.Infrastructure.Filters
     {
         public IEnumerable<Filter> GetFilters(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
         {
-
             //take all filters  
             IEnumerable<FilterAttribute> filters = actionDescriptor.GetFilterAttributes(true);
 

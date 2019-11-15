@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using SimpleWebShop.Data.Models;
+using SimpleWebShop.Services.Mapping;
 
 namespace SimpleWebShop.Web.Areas.Administration.ViewModels
 {
-    public class CreateCategoryInputModel
+    public class CreateCategoryInputModel : IMapTo<ProductCategory>
     {
         [Required]
         [MinLength(3)]

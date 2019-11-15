@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;

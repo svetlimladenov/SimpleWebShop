@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SimpleWebShop.Common
+﻿namespace SimpleWebShop.Common
 {
     public class GlobalConstants
     {

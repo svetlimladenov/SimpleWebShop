@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Web.Services.Contracts;
