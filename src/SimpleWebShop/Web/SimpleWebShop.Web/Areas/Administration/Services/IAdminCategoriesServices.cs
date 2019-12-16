@@ -1,4 +1,5 @@
-﻿using SimpleWebShop.Web.Areas.Administration.ViewModels;
+﻿using System.Threading.Tasks;
+using SimpleWebShop.Web.Areas.Administration.ViewModels;
 
 namespace SimpleWebShop.Web.Areas.Administration.Services
 {

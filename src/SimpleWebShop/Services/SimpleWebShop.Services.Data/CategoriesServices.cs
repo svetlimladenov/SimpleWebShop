@@ -19,22 +19,20 @@ namespace SimpleWebShop.Services.Data
 
         public ICollection<CategoriesWithNameAndIcon> GetCategoriesForLinks()
         {
-            //var classesAndNames = this.categoriesRepository.All().OrderBy(x => x.CreatedOn)
-            //    .Select(x => new CategoriesWithNameAndIcon
-            //    {
-            //        Id = x.Id,
-            //        Name = x.Name,
-            //        IconClass = x.IconClass
-            //    }).ToList();
-
-            var classesAndNames = this.categoriesRepository.All().OrderBy(x => x.CreatedOn).To<CategoriesWithNameAndIcon>().ToArray();
-
+            var classesAndNames = this.categoriesRepository
+                .All()
+                .OrderBy(x => x.CreatedOn)
+                .To<CategoriesWithNameAndIcon>()
+                .ToArray();
             return classesAndNames;
         }
 
         public ICollection<CategoriesWithNameAndIcon> GetAllCategories()
         {
-            var result = this.categoriesRepository.All().To<CategoriesWithNameAndIcon>().ToList();
+            var result = this.categoriesRepository
+                .All()
+                .To<CategoriesWithNameAndIcon>()
+                .ToArray();
             return result;
         }
     }

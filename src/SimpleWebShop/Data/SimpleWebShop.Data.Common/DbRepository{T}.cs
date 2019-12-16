@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using SimpleWebShop.Data.Common.Models;
 
 namespace SimpleWebShop.Data.Common
 {
-    public class DbRepository<T> : IDbRepository<T>
-        where T : class, IAuditInfo, IDeletableEntity
+    public class DbRepository<TEntity> : IDbRepository<TEntity>
+        where TEntity : class, IAuditInfo, IDeletableEntity
     {
         public DbRepository(DbContext context)
         {
@@ -16,24 +17,24 @@ namespace SimpleWebShop.Data.Common
             }
 
             this.Context = context;
-            this.DbSet = this.Context.Set<T>();
+            this.DbSet = this.Context.Set<TEntity>();
         }
 
-        private IDbSet<T> DbSet { get; }
+        private IDbSet<TEntity> DbSet { get; }
 
         private DbContext Context { get; }
 
-        public IQueryable<T> All()
+        public IQueryable<TEntity> All()
         {
             return this.DbSet.Where(x => !x.IsDeleted);
         }
 
-        public IQueryable<T> AllWithDeleted()
+        public IQueryable<TEntity> AllWithDeleted()
         {
             return this.DbSet;
         }
 
-        public T GetById(object id)
+        public TEntity GetById(object id)
         {
             var item = this.DbSet.Find(id);
             if (item.IsDeleted)
@@ -44,30 +45,29 @@ namespace SimpleWebShop.Data.Common
             return item;
         }
 
-        public void Add(T entity)
+        public void Add(TEntity entity)
         {
-            this.DbSet.Add(entity);
+            this.DbSet.Add(entity); 
         }
 
-        public void Delete(T entity)
+        public void Delete(TEntity entity)
         {
             entity.IsDeleted = true;
             entity.DeletedOn = DateTime.UtcNow;
         }
 
-        public void HardDelete(T entity)
+        public void HardDelete(TEntity entity)
         {
             this.DbSet.Remove(entity);
         }
 
-        public void Save()
+        public Task<int> SaveChangesAsync()
         {
-            this.Context.SaveChanges();
-        }
+            return this.Context.SaveChangesAsync();
+        } 
 
-        public void Dispose()
-        {
-            this.Context.Dispose();
-        }
+        public void Save() => this.Context.SaveChanges();
+
+        public void Dispose() => this.Context.Dispose();
     }
 }

@@ -1,25 +1,27 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using SimpleWebShop.Data.Common.Models;
 
 namespace SimpleWebShop.Data.Common
 {
-    public interface IDbRepository<T>
-        where T : class, IAuditInfo, IDeletableEntity
+    public interface IDbRepository<TEntity> : IDisposable
+        where TEntity : class, IAuditInfo, IDeletableEntity
     {
-        IQueryable<T> All();
+        IQueryable<TEntity> All();
 
-        IQueryable<T> AllWithDeleted();
+        IQueryable<TEntity> AllWithDeleted();
 
-        T GetById(object id);
+        TEntity GetById(object id);
 
-        void Add(T entity);
+        void Add(TEntity entity);
 
-        void Delete(T entity);
+        void Delete(TEntity entity);
 
-        void HardDelete(T entity);
+        void HardDelete(TEntity entity);
+
+        Task<int> SaveChangesAsync();
 
         void Save();
-
-        void Dispose();
     }
 }

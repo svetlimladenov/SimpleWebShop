@@ -1,4 +1,5 @@
-﻿using SimpleWebShop.Data.Common.Models;
+﻿using System;
+using SimpleWebShop.Data.Common.Models;
 
 namespace SimpleWebShop.Data.Models
 {

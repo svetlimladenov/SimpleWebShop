@@ -1,6 +1,9 @@
-﻿namespace SimpleWebShop.Web.Areas.Administration.ViewModels
+﻿using SimpleWebShop.Data.Models;
+using SimpleWebShop.Services.Mapping;
+
+namespace SimpleWebShop.Web.Areas.Administration.ViewModels
 {
-    public class BasicUserViewModel
+    public class BasicUserViewModel : IMapFrom<ApplicationUser>
     {
         public string Id { get; set; }
 

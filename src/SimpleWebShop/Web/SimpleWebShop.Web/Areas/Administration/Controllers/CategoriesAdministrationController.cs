@@ -30,8 +30,6 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        //TODO: AutoValidateAntiForgeryToken
         public ActionResult Create(CreateCategoryInputModel inputModel)
         {   
             if (!ModelState.IsValid)
@@ -46,11 +44,16 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         public ActionResult All()
         {
             var viewModel = this.categoriesServices.GetAllCategories();
+            TempData["Edit"] = "some id";
             return this.View(viewModel);
         }
 
         public ActionResult Edit(string id)
         {
+            if (TempData.ContainsKey("Edit"))
+            {
+                id = TempData["Edit"].ToString();
+            }
             ViewData["id"] = id;
             return this.View();
         }

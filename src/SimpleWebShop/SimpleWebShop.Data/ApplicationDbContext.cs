@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using SimpleWebShop.Data.Common.Models;
 using SimpleWebShop.Data.Models;
@@ -12,6 +14,7 @@ namespace SimpleWebShop.Data
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public static ApplicationDbContext Create()

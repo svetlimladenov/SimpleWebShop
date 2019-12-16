@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
+using SimpleWebShop.Services.Mapping;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;
 
 namespace SimpleWebShop.Web.Areas.Administration.Services
@@ -17,14 +18,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
         {
             var viewModel = new AllUsersViewModel()
             {
-                AllUsers = this.users.AllWithDeleted().Select(x => new BasicUserViewModel
-                {
-                    FirstName = x.FirstName,
-                    LastName = x.LastName,
-                    Email = x.Email,
-                    Id = x.Id,
-                    IsDeleted = x.IsDeleted
-                }).ToList()
+                AllUsers = this.users.AllWithDeleted().To<BasicUserViewModel>().ToArray()
             };
 
             return viewModel;

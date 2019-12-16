@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using AutoMapper;
 using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;
@@ -8,24 +10,20 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
     public class AdminCategoriesServices : IAdminCategoriesServices
     {
         private readonly IDbRepository<ProductCategory> categoriesRepository;
+        private readonly IMapper mapper;
 
-        public AdminCategoriesServices(IDbRepository<ProductCategory> categoriesRepository)
+        public AdminCategoriesServices(IDbRepository<ProductCategory> categoriesRepository, IMapper mapper)
         {
             this.categoriesRepository = categoriesRepository;
+            this.mapper = mapper;
         }
 
         public void CreateCategory(CreateCategoryInputModel inputModel)
         {
-            var category = new ProductCategory()
-            {
-                Id = Guid.NewGuid().ToString(),
-                Description = inputModel.Description,
-                Name = inputModel.Name,
-                IconClass = inputModel.IconClass,
-            };
-
+            var category = this.mapper.Map<ProductCategory>(inputModel);
+            category.Id = Guid.NewGuid().ToString();
             this.categoriesRepository.Add(category);
-            this.categoriesRepository.Save();
+            this.categoriesRepository.Save(); //TODO Fix save changes async 
         }
         public void DeleteCategory(string id)
         {
