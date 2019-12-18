@@ -3,6 +3,7 @@ using System.Reflection;
 using SimpleWebShop.Data;
 using SimpleWebShop.Data.Migrations;
 using SimpleWebShop.Services.Models.ViewModels.Home;
+using SimpleWebShop.Web.Areas.Administration.ViewModels;
 
 namespace SimpleWebShop.Web
 {
@@ -23,7 +24,7 @@ namespace SimpleWebShop.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AutoMapperConfig.RegisterMappings(typeof(HomeIndexViewModel).Assembly,Assembly.GetExecutingAssembly());
+            //AutoMapperConfig.RegisterMappings(typeof(HomeIndexViewModel).Assembly,typeof(CreateCategoryInputModel).Assembly,Assembly.GetExecutingAssembly());
         }
     }
 }

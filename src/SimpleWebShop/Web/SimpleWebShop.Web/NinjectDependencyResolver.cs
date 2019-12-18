@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Reflection;
 using AutoMapper;
 using Ninject.Web.Common;
 using SimpleWebShop.Data;
@@ -6,6 +7,8 @@ using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Services.Data;
 using SimpleWebShop.Services.Data.Contracts;
+using SimpleWebShop.Services.Mapping;
+using SimpleWebShop.Services.Models.ViewModels.Home;
 using SimpleWebShop.Web.Areas.Administration.Services;
 using SimpleWebShop.Web.Areas.Administration.ViewModels;
 
@@ -43,15 +46,11 @@ namespace SimpleWebShop.Web
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
             kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>)).InRequestScope();
 
-
-            //inject AutoMapper
-            var mapperConfiguration = CreateConfiguration();
-            kernel.Bind<MapperConfiguration>().ToConstant(mapperConfiguration).InSingletonScope();
-
-            //// This teaches Ninject how to create automapper instances say if for instance
-            //// MyResolver has a constructor with a parameter that needs to be injected
-            kernel.Bind<IMapper>().ToMethod(ctx =>
-                new Mapper(mapperConfiguration, type => ctx.Kernel.Get(type)));
+            //Registered The AutoMapper
+            AutoMapperConfig.RegisterMappings(typeof(HomeIndexViewModel).Assembly, typeof(CreateCategoryInputModel).Assembly, Assembly.GetExecutingAssembly());
+            var mapper = AutoMapperConfig.MapperInstance;
+            kernel.Bind<IMapper>()
+                .ToMethod(ctx => new Mapper(mapper.ConfigurationProvider, type => ctx.Kernel.Get(type)));
 
 
             //services
@@ -59,19 +58,7 @@ namespace SimpleWebShop.Web
             kernel.Bind<IProductsControlPanelServices>().To<ProductsControlPanelServices>().InRequestScope();
             kernel.Bind<ICategoriesServices>().To<CategoriesServices>().InRequestScope();
             kernel.Bind<IAdminCategoriesServices>().To<AdminCategoriesServices>().InRequestScope();
-
-
-        }
-
-        //AutoMapper Configurations - here can add some configurations
-        private MapperConfiguration CreateConfiguration()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<CreateCategoryInputModel,ProductCategory>();
-            });
-
-            return config;
+            kernel.Bind<IAdminProductsServices>().To<AdminProductsServices>().InRequestScope();
         }
     }
 }

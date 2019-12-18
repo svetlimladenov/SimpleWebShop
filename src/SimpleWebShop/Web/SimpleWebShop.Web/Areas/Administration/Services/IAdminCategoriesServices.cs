@@ -8,5 +8,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
         void CreateCategory(CreateCategoryInputModel inputModel);
 
         void DeleteCategory(string id);
+
+        void BringBackCategory(string id);
     }
 }

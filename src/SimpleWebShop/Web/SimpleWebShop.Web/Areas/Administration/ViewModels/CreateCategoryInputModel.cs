@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Services.Mapping;
 

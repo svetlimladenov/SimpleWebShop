@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201912161359177_Idk.Designer.cs">
       <DependentUpon>201912161359177_Idk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912161730476_RemovedDetailsFromProducts.cs" />
+    <Compile Include="Migrations\201912161730476_RemovedDetailsFromProducts.Designer.cs">
+      <DependentUpon>201912161730476_RemovedDetailsFromProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912161359177_Idk.resx">
       <DependentUpon>201912161359177_Idk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912161730476_RemovedDetailsFromProducts.resx">
+      <DependentUpon>201912161730476_RemovedDetailsFromProducts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,5 +10,7 @@ namespace SimpleWebShop.Services.Models.ViewModels.Home
         public string Id { get; set; }
 
         public string IconClass { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

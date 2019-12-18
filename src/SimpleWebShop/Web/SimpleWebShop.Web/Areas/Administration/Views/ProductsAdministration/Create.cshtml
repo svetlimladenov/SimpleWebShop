@@ -8,10 +8,54 @@
     @using (Html.BeginForm("Create", "ProductsAdministration", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        
+
+        <div>
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = nameof(Model.Name) })
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Price)
+            @Html.TextBoxFor(x => x.Price, new { @class = "form-control", placeholder = nameof(Model.Price) })
+            @Html.ValidationMessageFor(x => x.Price)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Description)
+            @Html.TextBoxFor(x => x.Description, new { @class = "form-control", placeholder = nameof(Model.Description) })
+            @Html.ValidationMessageFor(x => x.Description)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Color)
+            @Html.TextBoxFor(x => x.Color, new { @class = "form-control", placeholder = nameof(Model.Color) })
+            @Html.ValidationMessageFor(x => x.Color)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Weight)
+            @Html.TextBoxFor(x => x.Weight, new { @class = "form-control", placeholder = nameof(Model.Weight) })
+            @Html.ValidationMessageFor(x => x.Weight)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Size)
+            @Html.TextBoxFor(x => x.Size, new { @class = "form-control", placeholder = nameof(Model.Size) })
+            @Html.ValidationMessageFor(x => x.Size)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.ProductsOnStock)
+            @Html.TextBoxFor(x => x.ProductsOnStock, new { @class = "form-control", placeholder = nameof(Model.Description) })
+            @Html.ValidationMessageFor(x => x.ProductsOnStock)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.ProductCategoryName)
+            @Html.DropDownList(nameof(Model.ProductCategoryName),
+                new SelectList(Model.AllCategoriesNames),
+                new { @class = "form-control" })
+        </div>
         <div class="row justify-content-center mt-3">
             <button type="submit" class="btn btn-success">Create</button>
         </div>
     }
 </div>
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -27,13 +27,19 @@ namespace SimpleWebShop.Services.Data
             return classesAndNames;
         }
 
-        public ICollection<CategoriesWithNameAndIcon> GetAllCategories()
+        public ICollection<CategoriesWithNameAndIcon> GetAllWithDeletedCategories()
         {
             var result = this.categoriesRepository
-                .All()
+                .AllWithDeleted()
                 .To<CategoriesWithNameAndIcon>()
                 .ToArray();
             return result;
+        }
+
+        public string GetCategoryIdByName(string name)
+        {
+            var categoryId = this.categoriesRepository.All().FirstOrDefault(x => x.Name == name)?.Id;
+            return categoryId;
         }
     }
 }

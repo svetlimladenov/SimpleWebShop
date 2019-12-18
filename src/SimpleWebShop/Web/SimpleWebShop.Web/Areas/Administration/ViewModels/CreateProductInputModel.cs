@@ -1,6 +1,12 @@
-﻿namespace SimpleWebShop.Web.Areas.Administration.ViewModels
+﻿using System;
+using System.Collections.Generic;
+using AutoMapper;
+using SimpleWebShop.Data.Models;
+using SimpleWebShop.Services.Mapping;
+
+namespace SimpleWebShop.Web.Areas.Administration.ViewModels
 {
-    public class CreateProductInputModel
+    public class CreateProductInputModel : IMapTo<Product>
     {
         public string Name { get; set; }
 
@@ -12,11 +18,7 @@
 
         public double Weight { get; set; }
 
-        public string ShortDescription { get; set; }
-
-        public string LongDescription { get; set; }
-
-        public string Details { get; set; }
+        public string Description { get; set; }
 
         // public ICollection<ProductImage> ProductImages { get; set; }
 
@@ -24,5 +26,6 @@
 
         public string ProductCategoryName { get; set; }
 
+        public ICollection<string> AllCategoriesNames { get; set; }
     }
 }

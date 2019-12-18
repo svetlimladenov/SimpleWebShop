@@ -43,7 +43,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
 
         public ActionResult All()
         {
-            var viewModel = this.categoriesServices.GetAllCategories();
+            var viewModel = this.categoriesServices.GetAllWithDeletedCategories();
             TempData["Edit"] = "some id";
             return this.View(viewModel);
         }
@@ -59,10 +59,17 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         }
 
         [HttpPost]
-        public JsonResult Delete([Required]string id)
+        public ActionResult BringBack([Required] string id)
+        {
+            this.adminCategoriesServices.BringBackCategory(id);
+            return this.Json(new[] { id });
+        }
+
+        [HttpPost]
+        public ActionResult Delete([Required] string id)
         {
             this.adminCategoriesServices.DeleteCategory(id);
-            return this.Json(new[] {id});
+            return this.Json(new[] { id });
         }
     }
 }

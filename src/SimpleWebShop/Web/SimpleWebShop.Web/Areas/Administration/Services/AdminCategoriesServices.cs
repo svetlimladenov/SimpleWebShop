@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using SimpleWebShop.Data.Common;
@@ -30,6 +31,14 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
             var categoryToDelete = this.categoriesRepository.GetById(id);
             this.categoriesRepository.Delete(categoryToDelete);
             this.categoriesRepository.Save();
+        }
+
+        public void BringBackCategory(string id)
+        {
+            var category = this.categoriesRepository.AllWithDeleted().FirstOrDefault(x => x.Id == id);
+            category.IsDeleted = false;
+            this.categoriesRepository.Save();
+
         }
     }
 }

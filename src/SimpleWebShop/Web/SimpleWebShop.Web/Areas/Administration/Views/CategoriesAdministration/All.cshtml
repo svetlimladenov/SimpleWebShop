@@ -9,26 +9,37 @@
 <div class="table-responsive">
     <table class="table">
         <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Icon</th>
-            <th scope="col">Category Name</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-        </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">IsDeleted</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete/Bring Back</th>
+            </tr>
         </thead>
         <tbody>
-        @foreach (var category in Model)
-        {
-            counter++;
-            <tr>
-                <th scope="row">@counter</th>
-                <td><i class="fas fa-@category.IconClass"></i></td>
-                <td>@category.Name</td>
-                <td>@Html.ActionLink("Edit","Edit","CategoriesAdministration", new {id = category.Id}, new { @class="btn btn-cyan"})</td>
-                <td><button class="delete-btn btn btn-danger" data-id="@category.Id" data-category-name="@category.Name">Delete</button></td>
-            </tr>
-        }
+            @foreach (var category in Model)
+            {
+                counter++;
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td><i class="fas fa-@category.IconClass"></i></td>
+                    <td>@category.Name</td>
+                    <td>@category.IsDeleted</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "CategoriesAdministration", new { id = category.Id }, new { @class = "btn btn-cyan" })</td>
+                    <td>
+                        @if (category.IsDeleted)
+                        {
+                            <button class="action-button btn btn-success" data-id="@category.Id" data-action="Undelete" data-category-name="@category.Name">Undelete</button>
+                        }
+                        else
+                        {
+                            <button class="action-button btn btn-danger" data-id="@category.Id" data-action="Delete" data-category-name="@category.Name">Delete</button>
+                        }
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

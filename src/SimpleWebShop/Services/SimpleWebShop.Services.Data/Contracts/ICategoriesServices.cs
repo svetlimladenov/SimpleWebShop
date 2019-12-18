@@ -7,6 +7,8 @@ namespace SimpleWebShop.Services.Data.Contracts
     {
         ICollection<CategoriesWithNameAndIcon> GetCategoriesForLinks();
 
-        ICollection<CategoriesWithNameAndIcon> GetAllCategories();
+        ICollection<CategoriesWithNameAndIcon> GetAllWithDeletedCategories();
+
+        string GetCategoryIdByName(string name);
     }
 }

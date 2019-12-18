@@ -220,7 +220,9 @@
     <Compile Include="Areas\Administration\Controllers\SupportController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\Services\AdminCategoriesServices.cs" />
+    <Compile Include="Areas\Administration\Services\AdminProductsServices.cs" />
     <Compile Include="Areas\Administration\Services\IAdminCategoriesServices.cs" />
+    <Compile Include="Areas\Administration\Services\IAdminProductsServices.cs" />
     <Compile Include="Areas\Administration\Services\IUsersServices.cs" />
     <Compile Include="Areas\Administration\Services\UsersServices.cs" />
     <Compile Include="Areas\Administration\ViewModels\AllUsersViewModel.cs" />
