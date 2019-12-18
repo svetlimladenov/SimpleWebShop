@@ -21,11 +21,7 @@ namespace SimpleWebShop.Data.Models
 
         public double Weight { get; set; }
 
-        public string ShortDescription { get; set; }
-
-        public string LongDescription { get; set; }
-
-        public string Details { get; set; }
+        public string Description { get; set; }
 
         public ICollection<ProductImage> ProductImages { get; set; }
 
