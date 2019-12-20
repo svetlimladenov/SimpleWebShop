@@ -16,6 +16,7 @@
                 <th scope="col">IsDeleted</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete/Bring Back</th>
+                <th scope="col">Hard Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,9 @@
                             <button class="action-button btn btn-danger" data-id="@category.Id" data-action="Delete" data-category-name="@category.Name">Delete</button>
                         }
                     </td>
+                    <td>
+                        <button class="action-button btn btn-elegant" data-id="@category.Id" data-action="HardDelete" data-category-name="@category.Name">Hard Delete</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -48,7 +52,7 @@
     <ul class="pagination">
         @if (ViewBag.pagesCount != null)
         {
-            for (int i = 1; i < ViewBag.pagesCount; i++)
+            for (int i = 1; i <= ViewBag.pagesCount; i++)
             {
                 if (i == ViewBag.pageNumber)
                 {

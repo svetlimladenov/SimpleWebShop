@@ -18,13 +18,19 @@
                     }).catch(err => {
                         console.log(err);
                     });
-                } else {
+                } else if (action === 'Undelete') {
                     $.post('/Administration/CategoriesAdministration/BringBack', { id: id }).then(res => {
                         btn.removeClass('undelete-btn btn-success');
                         btn.addClass('delete-btn btn-danger');
                         btn.text('DELETE');
                         btn.attr('data-action', 'Delete');
                         isDeleted.text('False');
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                } else if (action === 'HardDelete') {
+                    $.post('/Administration/CategoriesAdministration/HardDelete', { id: id }).then(res => {
+                        btn.parent().parent().remove();
                     }).catch(err => {
                         console.log(err);
                     });

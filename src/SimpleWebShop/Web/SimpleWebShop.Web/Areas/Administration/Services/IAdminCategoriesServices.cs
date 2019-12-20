@@ -9,6 +9,8 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
 
         void DeleteCategory(string id);
 
+        void HardDeleteCategory(string id);
+
         void BringBackCategory(string id);
     }
 }

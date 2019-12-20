@@ -33,6 +33,13 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
             this.categoriesRepository.Save();
         }
 
+        public void HardDeleteCategory(string id)
+        {
+            var categoryToDelete = this.categoriesRepository.AllWithDeleted().FirstOrDefault(x => x.Id == id);
+            this.categoriesRepository.HardDelete(categoryToDelete);
+            this.categoriesRepository.Save();
+        }
+
         public void BringBackCategory(string id)
         {
             var category = this.categoriesRepository.AllWithDeleted().FirstOrDefault(x => x.Id == id);

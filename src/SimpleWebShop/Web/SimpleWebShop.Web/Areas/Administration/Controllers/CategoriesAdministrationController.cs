@@ -50,7 +50,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
             var viewModel = this.categoriesServices.GetAllWithDeletedCategories(realPage, perPage);
             ViewData["counter"] = (realPage - 1) * perPage;
             var categoriesCount = this.categoriesServices.GetCategoriesCount();
-            var pagesCount = categoriesCount % perPage + 1;
+            var pagesCount = categoriesCount / perPage + 1;
             ViewBag.pagesCount = pagesCount;
             ViewBag.pageNumber = realPage;
             return this.View(viewModel);    
@@ -77,6 +77,13 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         public ActionResult Delete([Required] string id)
         {
             this.adminCategoriesServices.DeleteCategory(id);
+            return this.Json(new[] { id });
+        }
+
+        [HttpPost]
+        public ActionResult HardDelete([Required] string id)
+        {
+            this.adminCategoriesServices.HardDeleteCategory(id);
             return this.Json(new[] { id });
         }
     }
