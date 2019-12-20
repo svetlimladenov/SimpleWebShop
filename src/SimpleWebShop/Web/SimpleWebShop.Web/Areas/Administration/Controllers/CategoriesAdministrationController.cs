@@ -41,17 +41,25 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
             return this.RedirectToAction("ProductsControlPanel", "Dashboard");
         }
 
-        public ActionResult All()
-        {
-            var viewModel = this.categoriesServices.GetAllWithDeletedCategories();
-            TempData["Edit"] = "some id";
-            return this.View(viewModel);
+        [HttpGet]
+        public ActionResult All(int? p)
+        {   
+            int perPage = 5;
+            int realPage;
+            realPage = p ?? 1;
+            var viewModel = this.categoriesServices.GetAllWithDeletedCategories(realPage, perPage);
+            ViewData["counter"] = (realPage - 1) * perPage;
+            var categoriesCount = this.categoriesServices.GetCategoriesCount();
+            var pagesCount = categoriesCount % perPage + 1;
+            ViewBag.pagesCount = pagesCount;
+            ViewBag.pageNumber = realPage;
+            return this.View(viewModel);    
         }
 
         public ActionResult Edit(string id)
         {
             if (TempData.ContainsKey("Edit"))
-            {
+            {   
                 id = TempData["Edit"].ToString();
             }
             ViewData["id"] = id;

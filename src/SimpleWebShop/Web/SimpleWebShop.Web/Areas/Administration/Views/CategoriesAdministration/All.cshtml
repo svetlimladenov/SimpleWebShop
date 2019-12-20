@@ -1,7 +1,7 @@
 ﻿@model ICollection<SimpleWebShop.Services.Models.ViewModels.Home.CategoriesWithNameAndIcon>
 @{
     ViewBag.Title = "All";
-    var counter = 0;
+    var counter = (int)(ViewData["counter"] ?? 0);
 }
 
 <h2>All</h2>
@@ -43,6 +43,31 @@
         </tbody>
     </table>
 </div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        @if (ViewBag.pagesCount != null)
+        {
+            for (int i = 1; i < ViewBag.pagesCount; i++)
+            {
+                if (i == ViewBag.pageNumber)
+                {
+                    <li class="page-item">
+                        @Html.ActionLink(i.ToString(), "All", "CategoriesAdministration", new { p = i }, new { @class = "page-link text-primary border" })
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        @Html.ActionLink(i.ToString(), "All", "CategoriesAdministration", new { p = i }, new { @class = "page-link text-white bg-primary" })
+                    </li>
+                }
+
+            }
+        }
+    </ul>
+</nav>
+
 
 @section scripts
 {

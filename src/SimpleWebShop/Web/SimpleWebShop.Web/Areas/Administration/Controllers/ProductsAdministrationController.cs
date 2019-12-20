@@ -25,7 +25,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         {
             var viewModel = new CreateProductInputModel()
             {
-                AllCategoriesNames = this.categoriesServices.GetAllWithDeletedCategories().Select(x => x.Name).ToArray(),
+                AllCategoriesNames = this.categoriesServices.GetAllCategoriesNames()
             };
             return View(viewModel);
         }

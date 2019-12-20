@@ -20,13 +20,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
 
         public ActionResult ProductsControlPanel()
         {
-            var viewModel = new ProductsControlViewModel()
-            {
-                CategoriesCount = this.productsControlPanelServices.GetAllCategoriesCount(),
-                ProductsCount = this.productsControlPanelServices.GetAllProductsCount()
-            };
-
-            return this.View(viewModel);
+            return this.View();
         }
     }
 }

@@ -27,10 +27,19 @@ namespace SimpleWebShop.Services.Data
             return classesAndNames;
         }
 
-        public ICollection<CategoriesWithNameAndIcon> GetAllWithDeletedCategories()
+        public ICollection<string> GetAllCategoriesNames()
+        {
+            var names = this.categoriesRepository.All().Select(x => x.Name).ToArray();
+            return names;
+        }
+
+        public ICollection<CategoriesWithNameAndIcon> GetAllWithDeletedCategories(int page, int perPage = 10)
         {
             var result = this.categoriesRepository
                 .AllWithDeleted()
+                .OrderBy(x => x.CreatedOn)
+                .Skip(perPage * (page - 1))
+                .Take(perPage)
                 .To<CategoriesWithNameAndIcon>()
                 .ToArray();
             return result;
@@ -40,6 +49,12 @@ namespace SimpleWebShop.Services.Data
         {
             var categoryId = this.categoriesRepository.All().FirstOrDefault(x => x.Name == name)?.Id;
             return categoryId;
+        }
+
+        public int GetCategoriesCount()
+        {
+            var count = this.categoriesRepository.AllWithDeleted().Count();
+            return count;
         }
     }
 }
