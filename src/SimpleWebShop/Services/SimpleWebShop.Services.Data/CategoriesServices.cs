@@ -10,9 +10,9 @@ namespace SimpleWebShop.Services.Data
 {
     public class CategoriesServices : ICategoriesServices
     {
-        private readonly IDbRepository<ProductCategory> categoriesRepository;
+        private readonly IDbRepository<Category> categoriesRepository;
 
-        public CategoriesServices(IDbRepository<ProductCategory> categoriesRepository)
+        public CategoriesServices(IDbRepository<Category> categoriesRepository)
         {
             this.categoriesRepository = categoriesRepository;
         }

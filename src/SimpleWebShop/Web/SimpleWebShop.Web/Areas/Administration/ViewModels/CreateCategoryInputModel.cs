@@ -7,7 +7,7 @@ using SimpleWebShop.Services.Mapping;
 
 namespace SimpleWebShop.Web.Areas.Administration.ViewModels
 {
-    public class CreateCategoryInputModel : IMapTo<ProductCategory>
+    public class CreateCategoryInputModel : IMapTo<Category>
     {
         [Required]
         [MinLength(3)]

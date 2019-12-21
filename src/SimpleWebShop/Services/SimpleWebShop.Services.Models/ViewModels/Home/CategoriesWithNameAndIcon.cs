@@ -3,7 +3,7 @@ using SimpleWebShop.Services.Mapping;
 
 namespace SimpleWebShop.Services.Models.ViewModels.Home
 {
-    public class CategoriesWithNameAndIcon : IMapFrom<ProductCategory>
+    public class CategoriesWithNameAndIcon : IMapFrom<Category>
     {
         public string Name { get; set; }
 

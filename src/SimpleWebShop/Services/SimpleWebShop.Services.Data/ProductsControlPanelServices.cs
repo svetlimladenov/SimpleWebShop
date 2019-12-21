@@ -8,9 +8,9 @@ namespace SimpleWebShop.Services.Data
     public class ProductsControlPanelServices : IProductsControlPanelServices
     {
         private readonly IDbRepository<Product> productsRepository;
-        private readonly IDbRepository<ProductCategory> categoriesRepository;
+        private readonly IDbRepository<Category> categoriesRepository;
 
-        public ProductsControlPanelServices(IDbRepository<Product> productsRepository, IDbRepository<ProductCategory> categoriesRepository)
+        public ProductsControlPanelServices(IDbRepository<Product> productsRepository, IDbRepository<Category> categoriesRepository)
         {
             this.productsRepository = productsRepository;
             this.categoriesRepository = categoriesRepository;

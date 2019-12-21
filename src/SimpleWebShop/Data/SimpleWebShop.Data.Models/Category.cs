@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using SimpleWebShop.Data.Common.Models;
 
 namespace SimpleWebShop.Data.Models
 {
-    public class ProductCategory : BaseModel<string>
+    public class Category : BaseModel<string>
     {
-        public ProductCategory()
+        public Category()
         {
             this.Products = new HashSet<Product>();
         }
@@ -18,6 +19,11 @@ namespace SimpleWebShop.Data.Models
         public string IconClass { get; set; }
 
         public bool Active { get; set; }
+
+        [ForeignKey("ParentCategory")]
+        public string ParentCategoryId { get; set; }
+
+        public virtual Category ParentCategory { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

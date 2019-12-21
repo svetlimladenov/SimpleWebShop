@@ -8,7 +8,8 @@ namespace SimpleWebShop.Data.Models
     {
         public Product()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            this.OrderDetails = new HashSet<OrderProduct>();
+            this.UserReviews = new HashSet<UserProductReview>();
         }
 
         public string Name { get; set; }
@@ -27,10 +28,12 @@ namespace SimpleWebShop.Data.Models
 
         public int ProductsOnStock { get; set; }
 
-        public string ProductCategoryId { get; set; }
+        public string CategoryId { get; set; }
 
-        public virtual ProductCategory ProductCategory { get; set; }
+        public virtual Category Category { get; set; }
 
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<OrderProduct> OrderDetails { get; set; }
+
+        public virtual ICollection<UserProductReview> UserReviews { get; set; }
     }
 }

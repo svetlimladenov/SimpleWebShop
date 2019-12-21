@@ -26,11 +26,11 @@ namespace SimpleWebShop.Data
 
         public IDbSet<ProductImage> ProductImages { get; set; }
 
-        public IDbSet<ProductCategory> ProductCategories { get; set; }
+        public IDbSet<Category> Categories { get; set; }
 
         public IDbSet<Order> Orders { get; set; }
 
-        public IDbSet<OrderDetail> OrderDetails { get; set; }
+        public IDbSet<OrderProduct> OrderProducts { get; set; }
 
         public IDbSet<Shipper> Shippers { get; set; }
 
@@ -40,10 +40,15 @@ namespace SimpleWebShop.Data
 
         public IDbSet<SupportMessage> SupportMessages { get; set; }
 
+        public IDbSet<UserProductReview> UserProductReviews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<OrderDetail>().HasKey(x => new { x.OrderId, x.ProductId});
+            modelBuilder.Entity<OrderProduct>().Ignore(o => o.Id);
+            modelBuilder.Entity<OrderProduct>().HasKey(x => new { x.OrderId, x.ProductId});
+
+            modelBuilder.Entity<UserProductReview>().Ignore(p => p.Id);
+            modelBuilder.Entity<UserProductReview>().HasKey(p => new {p.ProductId, p.UserId});
 
             base.OnModelCreating(modelBuilder);
         }

@@ -17,6 +17,7 @@ namespace SimpleWebShop.Data.Models
         {
             this.Orders = new HashSet<Order>();
             this.SupportMessages = new HashSet<SupportMessage>();
+            this.UserReviews = new HashSet<UserProductReview>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -48,6 +49,8 @@ namespace SimpleWebShop.Data.Models
         public virtual ICollection<Order> Orders { get; set; }
 
         public virtual ICollection<SupportMessage> SupportMessages { get; set; }
+
+        public virtual ICollection<UserProductReview> UserReviews { get; set; }
 
     }
 }

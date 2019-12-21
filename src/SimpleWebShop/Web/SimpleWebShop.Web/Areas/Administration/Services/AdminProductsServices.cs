@@ -28,7 +28,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
             var categoryId = this.categoriesServices.GetCategoryIdByName(model.ProductCategoryName);
 
             var productMapper = this.mapper.Map<Product>(model);
-            productMapper.ProductCategoryId = categoryId;
+            productMapper.CategoryId = categoryId;
             productMapper.Id = Guid.NewGuid().ToString();
 
             this.productsRepository.Add(productMapper);

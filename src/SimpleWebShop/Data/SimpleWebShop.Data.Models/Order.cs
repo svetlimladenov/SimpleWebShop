@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SimpleWebShop.Data.Common.Models;
 
 namespace SimpleWebShop.Data.Models
@@ -26,5 +27,7 @@ namespace SimpleWebShop.Data.Models
         public virtual Shipper Shipper { get; set; }
 
         public bool Fulfilled { get; set; }
+
+        public ICollection<OrderProduct> OrderDetails { get; set; }
     }
 }

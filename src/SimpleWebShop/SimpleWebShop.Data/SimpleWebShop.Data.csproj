@@ -85,6 +85,18 @@
     <Compile Include="Migrations\201912161730476_RemovedDetailsFromProducts.Designer.cs">
       <DependentUpon>201912161730476_RemovedDetailsFromProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912201433526_UserReviewsAdd.cs" />
+    <Compile Include="Migrations\201912201433526_UserReviewsAdd.Designer.cs">
+      <DependentUpon>201912201433526_UserReviewsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912202347221_BugFixes.cs" />
+    <Compile Include="Migrations\201912202347221_BugFixes.Designer.cs">
+      <DependentUpon>201912202347221_BugFixes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912211400381_AddedParentCategories.cs" />
+    <Compile Include="Migrations\201912211400381_AddedParentCategories.Designer.cs">
+      <DependentUpon>201912211400381_AddedParentCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -123,6 +135,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912161730476_RemovedDetailsFromProducts.resx">
       <DependentUpon>201912161730476_RemovedDetailsFromProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912201433526_UserReviewsAdd.resx">
+      <DependentUpon>201912201433526_UserReviewsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912202347221_BugFixes.resx">
+      <DependentUpon>201912202347221_BugFixes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912211400381_AddedParentCategories.resx">
+      <DependentUpon>201912211400381_AddedParentCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,10 +10,10 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
 {
     public class AdminCategoriesServices : IAdminCategoriesServices
     {
-        private readonly IDbRepository<ProductCategory> categoriesRepository;
+        private readonly IDbRepository<Category> categoriesRepository;
         private readonly IMapper mapper;
 
-        public AdminCategoriesServices(IDbRepository<ProductCategory> categoriesRepository, IMapper mapper)
+        public AdminCategoriesServices(IDbRepository<Category> categoriesRepository, IMapper mapper)
         {
             this.categoriesRepository = categoriesRepository;
             this.mapper = mapper;
@@ -21,7 +21,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
 
         public void CreateCategory(CreateCategoryInputModel inputModel)
         {
-            var category = this.mapper.Map<ProductCategory>(inputModel);
+            var category = this.mapper.Map<Category>(inputModel);
             category.Id = Guid.NewGuid().ToString();
             this.categoriesRepository.Add(category);
             this.categoriesRepository.Save(); //TODO Fix save changes async 
@@ -45,7 +45,6 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
             var category = this.categoriesRepository.AllWithDeleted().FirstOrDefault(x => x.Id == id);
             category.IsDeleted = false;
             this.categoriesRepository.Save();
-
         }
     }
 }
