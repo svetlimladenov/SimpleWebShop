@@ -20,6 +20,10 @@ namespace SimpleWebShop.Web.Areas.Administration.ViewModels
         [Required]  
         public string IconClass { get; set; }
 
+        public string ParentCategoryName { get; set; }
+
         public List<string> AllFontAwesomeIcons { get; set; }
+
+        public ICollection<string> AllCategoriesNames { get; set; }
     }
 }

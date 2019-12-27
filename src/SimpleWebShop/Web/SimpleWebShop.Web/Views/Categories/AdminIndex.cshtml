@@ -1,0 +1,44 @@
+﻿@model SimpleWebShop.Services.Models.ViewModels.Categories.SingleCategoryViewModel
+@{
+    ViewBag.Title = "AdminIndex";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h1 class="text-center">
+            <i class="fas fa-@Model.IconClass"></i>
+            @Model.Name
+        </h1>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <a href="#" class="btn btn-success">Add Child / Add Products</a>
+        </div>
+        <div>
+            <a href="#" class="btn btn-info">Edit</a>
+        </div>
+        <div>
+            @if (@Model.IsDeleted)
+            {
+                <button class="action-button btn btn-success" data-id="@Model.Id" data-action="Undelete" data-category-name="@Model.Name">Undelete</button>
+            }
+            else
+            {
+                <button class="action-button btn btn-danger" data-id="@Model.Id" data-action="Delete" data-category-name="@Model.Name">Delete</button>
+            }
+        </div>
+        <div>
+            @using (Html.BeginForm("HardDelete", "CategoriesAdministration"))
+            {
+                @Html.AntiForgeryToken()
+                <input type="text" hidden="hidden" name="id" value="@Model.Id" />
+                <input type="submit" class="btn btn-elegant" value="Hard Delete" />
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Content/js/categories.js"></script>
+}

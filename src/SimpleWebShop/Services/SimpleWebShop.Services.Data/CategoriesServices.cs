@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using AutoMapper;
+using Dapper;
 using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Services.Data.Contracts;
 using SimpleWebShop.Services.Mapping;
+using SimpleWebShop.Services.Models.ViewModels.Categories;
 using SimpleWebShop.Services.Models.ViewModels.Home;
 
 namespace SimpleWebShop.Services.Data
@@ -11,10 +15,12 @@ namespace SimpleWebShop.Services.Data
     public class CategoriesServices : ICategoriesServices
     {
         private readonly IDbRepository<Category> categoriesRepository;
+        private readonly IMapper mapper;
 
-        public CategoriesServices(IDbRepository<Category> categoriesRepository)
+        public CategoriesServices(IDbRepository<Category> categoriesRepository, IMapper mapper)
         {
             this.categoriesRepository = categoriesRepository;
+            this.mapper = mapper;
         }
 
         public ICollection<CategoriesWithNameAndIcon> GetCategoriesForLinks()
@@ -56,5 +62,26 @@ namespace SimpleWebShop.Services.Data
             var count = this.categoriesRepository.AllWithDeleted().Count();
             return count;
         }
+
+        public string NormalizeCategoryName(string name)
+        {
+            var normalized = name.Replace('-', ' ');
+            return normalized;
+        }
+
+        public SingleCategoryViewModel GetCategoryViewModel(string name)
+        {
+            //doing this to avoid new query for all children categories, maybe can do this with select as well 
+            name = NormalizeCategoryName(name);
+            //var connectionString = System.Configuration.ConfigurationManager.
+            //    ConnectionStrings["connectionStringName"].ConnectionString;
+            //using (var connection = new SqlConnection(connectionString))
+            //{
+            //    var categories = connection.Query<>()
+            //}
+            var dbCategory = this.categoriesRepository.AllWithDeleted().FirstOrDefault(x => x.Name == name);
+            var viewModel = this.mapper.Map<SingleCategoryViewModel>(dbCategory);
+            return viewModel;
+        }   
     }
 }

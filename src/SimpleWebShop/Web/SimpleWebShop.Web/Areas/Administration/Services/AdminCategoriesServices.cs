@@ -23,12 +23,26 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
         {
             var category = this.mapper.Map<Category>(inputModel);
             category.Id = Guid.NewGuid().ToString();
+            if (inputModel.ParentCategoryName != null)
+            {
+                var parentCategoryId = this.categoriesRepository.All().FirstOrDefault(x => x.Name == inputModel.ParentCategoryName)?.Id;
+                if (parentCategoryId == null)
+                {
+                    throw new ArgumentException("Invalid Parent Category");
+                }
+                category.ParentCategoryId = parentCategoryId;
+            }
             this.categoriesRepository.Add(category);
             this.categoriesRepository.Save(); //TODO Fix save changes async 
         }
         public void DeleteCategory(string id)
         {
             var categoryToDelete = this.categoriesRepository.GetById(id);
+            var childCategories = this.categoriesRepository.All().Where(x => x.ParentCategoryId == id).ToList();
+            foreach (var category in childCategories)
+            {
+                this.categoriesRepository.Delete(category);
+            }
             this.categoriesRepository.Delete(categoryToDelete);
             this.categoriesRepository.Save();
         }
@@ -36,6 +50,14 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
         public void HardDeleteCategory(string id)
         {
             var categoryToDelete = this.categoriesRepository.AllWithDeleted().FirstOrDefault(x => x.Id == id);
+
+            //cant cascade delete self reference so do it by hand
+            var childCategories = this.categoriesRepository.All().Where(x => x.ParentCategoryId == id);
+            foreach (var category in childCategories)
+            {
+                category.ParentCategoryId = null;
+            }
+
             this.categoriesRepository.HardDelete(categoryToDelete);
             this.categoriesRepository.Save();
         }

@@ -24,6 +24,10 @@ namespace SimpleWebShop.Data.Models
         public string ParentCategoryId { get; set; }
 
         public virtual Category ParentCategory { get; set; }
+        
+        //TODO: Consider ICollection of children
+
+        //public virtual ICollection<Category> Categories { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

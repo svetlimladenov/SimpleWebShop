@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SimpleWebShop.Services.Models.ViewModels.Categories;
 using SimpleWebShop.Services.Models.ViewModels.Home;
 
 namespace SimpleWebShop.Services.Data.Contracts
@@ -14,5 +15,9 @@ namespace SimpleWebShop.Services.Data.Contracts
         string GetCategoryIdByName(string name);
 
         int GetCategoriesCount();
+
+        string NormalizeCategoryName(string name);
+
+        SingleCategoryViewModel GetCategoryViewModel(string name);
     }
 }

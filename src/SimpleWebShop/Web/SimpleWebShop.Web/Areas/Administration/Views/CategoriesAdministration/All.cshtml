@@ -9,43 +9,45 @@
 <div class="table-responsive">
     <table class="table">
         <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Icon</th>
-                <th scope="col">Category Name</th>
-                <th scope="col">IsDeleted</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete/Bring Back</th>
-                <th scope="col">Hard Delete</th>
-            </tr>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Icon</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">IsDeleted</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete/Bring Back</th>
+            <th scope="col">Hard Delete</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var category in Model)
-            {
-                counter++;
-                <tr>
-                    <th scope="row">@counter</th>
-                    <td><i class="fas fa-@category.IconClass"></i></td>
-                    <td>@category.Name</td>
-                    <td>@category.IsDeleted</td>
-                    <td>@Html.ActionLink("Edit", "Edit", "CategoriesAdministration", new { id = category.Id }, new { @class = "btn btn-cyan" })</td>
-                    <td>
-                        @if (category.IsDeleted)
-                        {
-                            <button class="action-button btn btn-success" data-id="@category.Id" data-action="Undelete" data-category-name="@category.Name">Undelete</button>
-                        }
-                        else
-                        {
-                            <button class="action-button btn btn-danger" data-id="@category.Id" data-action="Delete" data-category-name="@category.Name">Delete</button>
-                        }
-                    </td>
-                    <td>
-                        <button class="action-button btn btn-elegant" data-id="@category.Id" data-action="HardDelete" data-category-name="@category.Name">Hard Delete</button>
-                    </td>
-                </tr>
-            }
+        @foreach (var category in Model)
+        {
+            counter++;
+            <tr>
+                <th scope="row">@counter</th>
+                <td><i class="fas fa-@category.IconClass"></i></td>
+                <td>@Html.ActionLink(category.Name, "Index", "Categories", new { category = category.NameForLink, area = ""}, null)</td>
+                <td>@category.IsDeleted</td>
+                <td>@Html.ActionLink("Edit", "Edit", "CategoriesAdministration", new { id = category.Id }, new { @class = "btn btn-cyan" })</td>
+                <td>
+                    @if (category.IsDeleted)
+                    {
+                        <button class="action-button btn btn-success" data-id="@category.Id" data-action="Undelete" data-category-name="@category.Name">Undelete</button>
+                    }
+                    else
+                    {
+                        <button class="action-button btn btn-danger" data-id="@category.Id" data-action="Delete" data-category-name="@category.Name">Delete</button>
+                    }
+                </td>
+                <td>
+                    <button class="action-button btn btn-elegant" data-id="@category.Id" data-action="HardDelete" data-category-name="@category.Name">Hard Delete</button>
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
+    
+    <p class="text-info">Note <i class="fas fa-info-circle"></i> : If you delete a parent category, its sub categories will not be deleted.</p>
 </div>
 
 <nav aria-label="Page navigation example">
@@ -75,5 +77,5 @@
 
 @section scripts
 {
-    <script src="~/Content/js/deleteCategory.js"></script>
+    <script src="~/Content/js/categories.js"></script>
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
 using SimpleWebShop.Common;
@@ -24,7 +25,8 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         {
             var viewModel = new CreateCategoryInputModel()
             {
-                AllFontAwesomeIcons = GlobalConstants.FontAwesomeClasses.ToList()
+                AllFontAwesomeIcons = GlobalConstants.FontAwesomeClasses.ToList(),
+                AllCategoriesNames = this.categoriesServices.GetAllCategoriesNames()
             };
             return this.View(viewModel);
         }
@@ -38,7 +40,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
             }
 
             this.adminCategoriesServices.CreateCategory(inputModel);
-            return this.RedirectToAction("ProductsControlPanel", "Dashboard");
+            return this.RedirectToAction("Index","Categories", new { category = inputModel.Name, admin = "true", area = ""});
         }
 
         [HttpGet]
@@ -50,7 +52,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
             var viewModel = this.categoriesServices.GetAllWithDeletedCategories(realPage, perPage);
             ViewData["counter"] = (realPage - 1) * perPage;
             var categoriesCount = this.categoriesServices.GetCategoriesCount();
-            var pagesCount = categoriesCount / perPage + 1;
+            double pagesCount = Math.Ceiling(categoriesCount / (double)perPage);
             ViewBag.pagesCount = pagesCount;
             ViewBag.pageNumber = realPage;
             return this.View(viewModel);    
@@ -84,6 +86,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
         public ActionResult HardDelete([Required] string id)
         {
             this.adminCategoriesServices.HardDeleteCategory(id);
+            return this.RedirectToAction("All", "CategoriesAdministration", new { area = "Administration"});
             return this.Json(new[] { id });
         }
     }

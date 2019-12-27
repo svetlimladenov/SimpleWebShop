@@ -1,0 +1,11 @@
+﻿@model SimpleWebShop.Services.Models.ViewModels.Categories.SingleCategoryViewModel
+@{
+    ViewBag.Title = "All";
+}
+
+    <h1>@Model.Name</h1>
+
+@if (this.User.IsInRole("Administrator"))
+{
+    @Html.ActionLink("Admin View", "Index", new { category = Model.Name, admin = true})
+}

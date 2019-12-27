@@ -60,6 +60,7 @@
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\Categories\SingleCategoryViewModel.cs" />
     <Compile Include="ViewModels\Home\CategoriesWithNameAndIcon.cs" />
     <Compile Include="ViewModels\Home\HomeIndexViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />

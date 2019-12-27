@@ -6,15 +6,13 @@
             let id = x.dataset.id;
             let name = x.dataset.categoryName;
             let action = x.dataset.action;
-            let isDeleted = btn.parent().prev().prev();
-            if (confirm(`Are you sure you want to ${action} ${name} category`)) {
+            if (confirm(`Are you sure you want to ${action} ${name} category?`)) {
                 if (action === 'Delete') {
                     $.post('/Administration/CategoriesAdministration/Delete', { id: id }).then(res => {
                         btn.removeClass('delete-btn btn-danger');
                         btn.addClass('undelete-btn btn-success');
                         btn.text('UNDELETE');
                         btn.attr('data-action', 'Undelete');
-                        isDeleted.text('True');
                     }).catch(err => {
                         console.log(err);
                     });
@@ -24,7 +22,6 @@
                         btn.addClass('delete-btn btn-danger');
                         btn.text('DELETE');
                         btn.attr('data-action', 'Delete');
-                        isDeleted.text('False');
                     }).catch(err => {
                         console.log(err);
                     });
@@ -38,4 +35,15 @@
 
             }
         }));
+
+
+    const hasParent = document.querySelector('#hasParent');
+    hasParent.addEventListener('change',
+        (event) => {
+            if (event.target.checked) {
+                document.querySelector('#parentsDropdown').disabled = false;
+            } else {
+                document.querySelector('#parentsDropdown').disabled = true;
+            }
+        });
 });

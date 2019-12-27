@@ -47,7 +47,7 @@ namespace SimpleWebShop.Data.Common
 
         public void Add(TEntity entity)
         {
-            this.DbSet.Add(entity); 
+            this.DbSet.Add(entity);
         }
 
         public void Delete(TEntity entity)
@@ -64,7 +64,7 @@ namespace SimpleWebShop.Data.Common
         public Task<int> SaveChangesAsync()
         {
             return this.Context.SaveChangesAsync();
-        } 
+        }
 
         public void Save() => this.Context.SaveChanges();
 

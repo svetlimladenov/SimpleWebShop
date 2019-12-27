@@ -233,6 +233,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministrationBaseController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
@@ -300,7 +301,7 @@
     <Content Include="Content\js\addons\rating.min.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
-    <Content Include="Content\js\deleteCategory.js" />
+    <Content Include="Content\js\categories.js" />
     <Content Include="Content\js\jquery-3.4.1.min.js" />
     <Content Include="Content\js\mdb.js" />
     <Content Include="Content\js\mdb.min.js" />
@@ -468,6 +469,8 @@
     <Content Include="Views\Shared\LayoutPartials\_NavPartial.cshtml" />
     <Content Include="Views\Shared\LayoutPartials\_FooterPartial.cshtml" />
     <Content Include="Views\Shared\LayoutPartials\_SideBarCategories.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
