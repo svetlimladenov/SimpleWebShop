@@ -10,6 +10,7 @@ namespace SimpleWebShop.Data.Models
         public Category()
         {
             this.Products = new HashSet<Product>();
+            this.ChildCategories = new HashSet<Category>();
         }
 
         public string Name { get; set; }
@@ -24,10 +25,8 @@ namespace SimpleWebShop.Data.Models
         public string ParentCategoryId { get; set; }
 
         public virtual Category ParentCategory { get; set; }
-        
-        //TODO: Consider ICollection of children
 
-        //public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Category> ChildCategories { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

@@ -26,7 +26,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
             var viewModel = new CreateCategoryInputModel()
             {
                 AllFontAwesomeIcons = GlobalConstants.FontAwesomeClasses.ToList(),
-                AllCategoriesNames = this.categoriesServices.GetAllCategoriesNames()
+                AllCategoriesNames = this.categoriesServices.GetAllParentCategoriesNames()
             };
             return this.View(viewModel);
         }

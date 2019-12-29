@@ -14,15 +14,15 @@ namespace SimpleWebShop.Web.Controllers
         public ActionResult Index(string category, string admin)
         {
             ViewData["category"] = category;
+            var viewModel = this.categoriesServices.GetCategoryViewModel(category);
             if (this.User.IsInRole("Administrator") && !string.IsNullOrEmpty(admin) && admin == "True")
             {
-                var viewModel = this.categoriesServices.GetCategoryViewModel(category);
                 return this.View("AdminIndex", viewModel);
             }
             //TODO: Finish show info if an admin(Edit, Delete, ...) is watching otherwise show info for normal customer
             //TODO: If the category has child categories list them otherwise list the products
-            var viewModel1 = this.categoriesServices.GetCategoryViewModel(category);
-            return this.View(viewModel1);
+
+            return this.View(viewModel);
         }   
     }
 }

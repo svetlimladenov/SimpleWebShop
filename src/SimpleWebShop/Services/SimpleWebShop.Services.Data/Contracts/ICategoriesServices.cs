@@ -10,6 +10,8 @@ namespace SimpleWebShop.Services.Data.Contracts
 
         ICollection<string> GetAllCategoriesNames();
 
+        ICollection<string> GetAllParentCategoriesNames();
+
         ICollection<CategoriesWithNameAndIcon> GetAllWithDeletedCategories(int page, int perPage);
 
         string GetCategoryIdByName(string name);

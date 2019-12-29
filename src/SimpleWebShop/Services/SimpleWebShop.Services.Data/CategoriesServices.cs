@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using AutoMapper;
-using Dapper;
 using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Services.Data.Contracts;
@@ -27,6 +27,7 @@ namespace SimpleWebShop.Services.Data
         {
             var classesAndNames = this.categoriesRepository
                 .All()
+                .Where(x => x.ParentCategoryId == null)
                 .OrderBy(x => x.CreatedOn)
                 .To<CategoriesWithNameAndIcon>()
                 .ToArray();
@@ -36,6 +37,12 @@ namespace SimpleWebShop.Services.Data
         public ICollection<string> GetAllCategoriesNames()
         {
             var names = this.categoriesRepository.All().Select(x => x.Name).ToArray();
+            return names;
+        }
+
+        public ICollection<string> GetAllParentCategoriesNames()
+        {
+            var names = this.categoriesRepository.All().Where(x => x.ParentCategoryId == null).Select(x => x.Name).ToArray();
             return names;
         }
 
@@ -71,16 +78,24 @@ namespace SimpleWebShop.Services.Data
 
         public SingleCategoryViewModel GetCategoryViewModel(string name)
         {
-            //doing this to avoid new query for all children categories, maybe can do this with select as well 
-            name = NormalizeCategoryName(name);
-            //var connectionString = System.Configuration.ConfigurationManager.
-            //    ConnectionStrings["connectionStringName"].ConnectionString;
-            //using (var connection = new SqlConnection(connectionString))
-            //{
-            //    var categories = connection.Query<>()
-            //}
-            var dbCategory = this.categoriesRepository.AllWithDeleted().FirstOrDefault(x => x.Name == name);
-            var viewModel = this.mapper.Map<SingleCategoryViewModel>(dbCategory);
+            name = this.NormalizeCategoryName(name);
+            var viewModel = this.categoriesRepository.AllWithDeleted()
+                .Select(x => new SingleCategoryViewModel()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Description = x.Description,
+                    IconClass = x.IconClass,
+                    Active = x.Active,
+                    CreatedOn = x.CreatedOn,
+                    DeletedOn = x.DeletedOn,
+                    IsDeleted = x.IsDeleted,
+                    ModifiedOn = x.ModifiedOn,
+                    ParentCategoryId = x.ParentCategoryId,
+                    ChildCategories = x.ChildCategories,
+                    Products = x.Products
+                }).FirstOrDefault(x => x.Name == name);
+            
             return viewModel;
         }   
     }
