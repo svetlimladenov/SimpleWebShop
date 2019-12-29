@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SimpleWebShop.Services.Data.Contracts;
+using SimpleWebShop.Services.Models.ViewModels.Home;
 
 namespace SimpleWebShop.Web.Controllers
 {
@@ -15,7 +16,11 @@ namespace SimpleWebShop.Web.Controllers
         }
         public ActionResult Index()
         {
-            return this.View();
+            var model = new HomeIndexViewModel()
+            {
+                CategoriesLinks = this.categoriesServices.GetCategoriesForLinks()
+            };
+            return this.View(model);
         }
 
         [HttpGet]   

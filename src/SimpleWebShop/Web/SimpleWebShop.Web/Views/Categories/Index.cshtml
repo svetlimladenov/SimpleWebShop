@@ -3,9 +3,30 @@
     ViewBag.Title = "All";
 }
 
-    <h1>@Model.Name</h1>
+<h1>@Model.Name</h1>
 
 @if (this.User.IsInRole("Administrator"))
 {
-    @Html.ActionLink("Admin View", "Index", new { category = Model.Name, admin = true})
+    @Html.ActionLink("Admin View", "Index", new { category = Model.Name, admin = true })
+}
+
+@if (Model.Products.Any())
+{
+    <h3>Products: </h3>
+    foreach (var product in Model.Products)
+    {
+        <div>
+            <a href="#">@product.Name</a>
+        </div>
+    }
+}
+else
+{
+    <h3>Child Categories</h3>
+    foreach (var category in Model.ChildCategories)
+    {
+        <div>
+            @Html.ActionLink(category.Name, "Index", new { category = category.Name, admin = "True" })
+        </div>
+    }
 }

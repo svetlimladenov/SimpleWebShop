@@ -26,3 +26,56 @@
                 .side-menu ul li a:hover {
                     color: #BEC8CB;
                 }
+
+
+.main-menu {
+    display: flex;
+    position: relative;
+}
+
+.drop-down {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 600px;
+    height: 200px;
+    background: white;
+    z-index: 9;
+    border: 1px solid #000;
+    display: none;
+}
+
+#navbarNav .navbar-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+
+
+    .drop-down .category-title {
+        color: #1C2331;
+    }
+
+#navbarNav li {
+    padding: 0.5rem 1rem;
+    background: #1C2331;
+}
+
+    #navbarNav li a {
+        color: white;
+    }
+
+
+.mini-menu {
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .main-menu {
+        display: none;
+    }
+    .mini-menu {
+        display: block;
+    }
+}

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SimpleWebShop.Services.Models.ViewModels.Home
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,7 +12,7 @@
 <body>
     <div class="global-container">
         @Html.Partial("LayoutPartials/_NavPartial")
-        <div class="body-container" id="body">
+        <div class="body-container" id="body">  
             @RenderBody()
         </div>
         @Html.Partial("LayoutPartials/_FooterPartial")
