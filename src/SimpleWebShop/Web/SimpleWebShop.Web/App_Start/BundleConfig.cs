@@ -20,7 +20,8 @@
                       "~/Content/css/bootstrap.min.css",
                       "~/Content/css/mdb.min.css",
                       "~/Content/css/style.css",
-                      "~/Content/css/sidebar.css"));
+                      //"~/Content/css/sidebar.css",
+                      "~/Content/css/sidebarBootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Content/AdminCss").Include(
                     "~/Content/css/adminPanel.css"));

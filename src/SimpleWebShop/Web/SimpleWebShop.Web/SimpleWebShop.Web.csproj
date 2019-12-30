@@ -268,6 +268,7 @@
     <Content Include="Content\css\modules\animations-extended.css" />
     <Content Include="Content\css\modules\animations-extended.min.css" />
     <Content Include="Content\css\sidebar.css" />
+    <Content Include="Content\css\sidebarBootstrap.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\style.min.css" />
     <Content Include="Content\img\flags.png" />
@@ -317,7 +318,6 @@
     <Content Include="Content\js\modules\waves.js" />
     <Content Include="Content\js\modules\wow.js" />
     <Content Include="Content\js\popper.min.js" />
-    <Content Include="Content\js\scripts.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\addons\datatables-select.js" />

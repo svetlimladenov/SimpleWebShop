@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Services.Mapping;
 
@@ -32,6 +33,6 @@ namespace SimpleWebShop.Services.Models.ViewModels.Categories
 
         public ICollection<Product> Products { get; set; }
 
-        public ICollection<Category> ChildCategories { get; set; }
+        public ICollection<BasicCategoryViewModel> ChildCategories { get; set; }
     }
 }

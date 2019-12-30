@@ -1,5 +1,5 @@
-﻿@model ICollection<SimpleWebShop.Services.Models.ViewModels.Home.CategoriesWithNameAndIcon>
-    <nav class="navbar navbar-expand-sm navbar-dark unique-color-dark main-menu">
+﻿@model ICollection<SimpleWebShop.Services.Models.ViewModels.Categories.SingleCategoryViewModel>
+@*<nav class="navbar navbar-expand-sm navbar-dark unique-color-dark main-menu">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,10 +8,27 @@
                 @foreach (var category in Model)
                 {
                     <li class="nav-item"><a class="nav-link" href="/@category.NameForLink"><i class="fas fa-@category.IconClass"></i> @category.Name </a></li>
-                } 
+                }
             </ul>
         </div>
         <div class="drop-down">
             <h3 class="drop-down-title text-center">Category name</h3>
         </div>
-    </nav>
+    </nav>*@
+
+<div class="main-menu">
+    @foreach (var category in Model)
+    {
+        <div class="btn-group dropright dropdown">
+            <button type="button" class="btn unique-color-dark text-white text-left dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-@category.IconClass"></i> @category.Name
+            </button>
+            <div class="dropdown-menu">
+                @foreach (var child in category.ChildCategories)
+                {
+                    @Html.ActionLink(child.Name, "Index", "Categories", new { category = child.NameForLink}, new { @class = "dropdown-item"})
+                }
+            </div>
+        </div>
+    }
+</div>

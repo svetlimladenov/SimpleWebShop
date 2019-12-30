@@ -23,14 +23,15 @@ namespace SimpleWebShop.Services.Data
             this.mapper = mapper;
         }
 
-        public ICollection<CategoriesWithNameAndIcon> GetCategoriesForLinks()
+        public ICollection<SingleCategoryViewModel> GetCategoriesForLinks()
         {
             var classesAndNames = this.categoriesRepository
                 .All()
                 .Where(x => x.ParentCategoryId == null)
                 .OrderBy(x => x.CreatedOn)
-                .To<CategoriesWithNameAndIcon>()
+                .To<SingleCategoryViewModel>()
                 .ToArray();
+
             return classesAndNames;
         }
 
@@ -80,21 +81,7 @@ namespace SimpleWebShop.Services.Data
         {
             name = this.NormalizeCategoryName(name);
             var viewModel = this.categoriesRepository.AllWithDeleted()
-                .Select(x => new SingleCategoryViewModel()
-                {
-                    Id = x.Id,
-                    Name = x.Name,
-                    Description = x.Description,
-                    IconClass = x.IconClass,
-                    Active = x.Active,
-                    CreatedOn = x.CreatedOn,
-                    DeletedOn = x.DeletedOn,
-                    IsDeleted = x.IsDeleted,
-                    ModifiedOn = x.ModifiedOn,
-                    ParentCategoryId = x.ParentCategoryId,
-                    ChildCategories = x.ChildCategories,
-                    Products = x.Products
-                }).FirstOrDefault(x => x.Name == name);
+               .To<SingleCategoryViewModel>().FirstOrDefault(x => x.Name == name);
             
             return viewModel;
         }   

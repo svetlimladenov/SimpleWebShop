@@ -6,7 +6,7 @@ namespace SimpleWebShop.Services.Data.Contracts
 {
     public interface ICategoriesServices
     {
-        ICollection<CategoriesWithNameAndIcon> GetCategoriesForLinks();
+        ICollection<SingleCategoryViewModel> GetCategoriesForLinks();
 
         ICollection<string> GetAllCategoriesNames();
 

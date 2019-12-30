@@ -1,0 +1,32 @@
+﻿.dropdown-toggle {
+    margin: 0;
+}
+
+
+.dropright {
+    width: 100%;
+}
+
+    .dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-left: 1px;
+    }
+
+@media only screen and (max-width: 768px) {
+    .main-menu {
+        display: none;
+    }
+
+    .mini-menu {
+        display: block;
+    }
+}
+
+.dropdown-menu > li > a:hover:after {
+    text-decoration: underline;
+    transform: rotate(-90deg);
+}
+
+.navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+}
