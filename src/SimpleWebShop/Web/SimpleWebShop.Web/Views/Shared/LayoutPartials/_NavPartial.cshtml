@@ -1,10 +1,21 @@
-﻿<div class="nav-wrapper">
-    <nav class="mb-1 navbar navbar-expand-sm navbar-dark unique-color-dark body-container" id="header">
-        @Html.ActionLink("SimpleWebShop", "Index", "Home", new { area = ""}, new { @class = "navbar-brand" })
+﻿@using SimpleWebShop.Web.Infrastructure.Extensions
+<div class="nav-wrapper">
+    <nav class="mb-1 navbar navbar-expand-md navbar-dark unique-color-dark body-container" id="header">
+        @Html.ActionLink("SimpleWebShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
                 aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="dropdown categoriesNav">
+            <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 200px">
+                <div class="main-menu" id="main-menu-nav">
+                    @*load via ajax*@
+                </div>
+            </div>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
             <ul class="navbar-nav mr-auto">
                 <form class="form-inline">
@@ -30,12 +41,12 @@
                              aria-labelledby="navbarDropdownMenuLink-333">
                             @if (this.User.IsInRole("Administrator"))
                             {
-                                @Html.ActionLink("Administration", "Index", "Dashboard", new {area = "Administration"}, new {@class = "dropdown-item"})
+                                @Html.ActionLink("Administration", "Index", "Dashboard", new { area = "Administration" }, new { @class = "dropdown-item" })
                             }
 
-                            @Html.ActionLink("My Profile", "Index", "Manage", new {area = ""}, new {@class = "dropdown-item"})
+                            @Html.ActionLink("My Profile", "Index", "Manage", new { area = "" }, new { @class = "dropdown-item" })
 
-                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                             {
                                 @Html.AntiForgeryToken()
                                 <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log off</a>
@@ -49,7 +60,7 @@
             {
                 <ul class="navbar-nav ml-auto nav-flex-icons">
                     <li class="nav-item">
-                        @Html.ActionLink("Login", "Login", "Account", new { area = ""}, new { @class = "nav-link" })
+                        @Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link" })
                     </li>
                 </ul>
             }

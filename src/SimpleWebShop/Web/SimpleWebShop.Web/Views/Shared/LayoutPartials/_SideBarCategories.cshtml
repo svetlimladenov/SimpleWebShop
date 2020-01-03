@@ -20,13 +20,14 @@
     @foreach (var category in Model)
     {
         <div class="btn-group dropright dropdown">
-            <button type="button" class="btn unique-color-dark text-white text-left dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn text-left dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-@category.IconClass"></i> @category.Name
             </button>
             <div class="dropdown-menu">
+                <h4 class="child-category-header">@category.Name</h4>
                 @foreach (var child in category.ChildCategories)
                 {
-                    @Html.ActionLink(child.Name, "Index", "Categories", new { category = child.NameForLink}, new { @class = "dropdown-item"})
+                    @Html.ActionLink(child.Name, "Index", "Categories", new {category = child.NameForLink}, new {@class = "dropdown-item"})
                 }
             </div>
         </div>

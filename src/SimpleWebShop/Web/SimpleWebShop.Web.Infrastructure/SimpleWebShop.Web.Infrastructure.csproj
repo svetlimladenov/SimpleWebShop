@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\RequestExtension.cs" />
     <Compile Include="Filters\AutoValidateAntiforgeryTokenAttribute.cs" />
     <Compile Include="HtmlHelpers\ActionLinkExtensions.cs" />
     <Compile Include="Modules\AddToRoleModule.cs" />

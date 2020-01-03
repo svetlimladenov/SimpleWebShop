@@ -8,6 +8,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
 </head>
 <body>
     <div class="global-container">
@@ -19,6 +20,7 @@
     </div>
 
     @Scripts.Render("~/Content/js/bundles")
+    @Scripts.Render("~/Content/js/scripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>

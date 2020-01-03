@@ -261,6 +261,7 @@
     <Content Include="Content\css\adminPanel.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\home.css" />
     <Content Include="Content\css\mdb.css" />
     <Content Include="Content\css\mdb.lite.css" />
     <Content Include="Content\css\mdb.lite.min.css" />
@@ -304,6 +305,7 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\categories.js" />
     <Content Include="Content\js\jquery-3.4.1.min.js" />
+    <Content Include="Content\js\loadCategories.js" />
     <Content Include="Content\js\mdb.js" />
     <Content Include="Content\js\mdb.min.js" />
     <Content Include="Content\js\modules\bs-custom-file-input.js" />

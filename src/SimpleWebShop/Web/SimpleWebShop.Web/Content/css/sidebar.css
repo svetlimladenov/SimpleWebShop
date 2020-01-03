@@ -68,14 +68,15 @@
     }
 
 
-.mini-menu {
+.categoriesNav {
     display: none;
 }
+
 @media only screen and (max-width: 768px) {
     .main-menu {
         display: none;
     }
-    .mini-menu {
+    .categoriesNav {
         display: block;
     }
 }

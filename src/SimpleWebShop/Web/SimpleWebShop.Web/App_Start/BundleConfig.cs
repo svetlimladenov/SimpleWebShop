@@ -31,6 +31,9 @@
                     "~/Content/js/popper.min.js",
                     "~/Content/js/bootstrap.min.js",
                     "~/Content/js/mdb.min.js"));
+
+            bundles.Add(new ScriptBundle("~/Content/js/scripts").Include(
+                    "~/Content/js/loadCategories.js"));
         }
     }
 }
