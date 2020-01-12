@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Publish", "Test", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="text" name="Name"/>
+    <input type="number" name="Age"/>
+    <input type="submit" value="Publish"/>
+}
+

@@ -31,6 +31,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebShop.Services.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebShop.Services.Models", "Services\SimpleWebShop.Services.Models\SimpleWebShop.Services.Models.csproj", "{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{7171BC94-378B-48C9-9BE1-FE9D89FE50F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebShop.MS.TestMicroservice", "Microservices\SimpleWebShop.MS.TestMicroservice\SimpleWebShop.MS.TestMicroservice.csproj", "{673918D8-D083-464C-9E0E-B8890869B9E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messages", "Messages", "{9E945EC3-4E7E-4E96-B27D-5DDD5FFD08D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebShop.Messages", "Messages\SimpleWebShop.Messages\SimpleWebShop.Messages.csproj", "{E2639DE0-0278-4979-9AB9-5C48D74ABAD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +81,14 @@ Global
 		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{673918D8-D083-464C-9E0E-B8890869B9E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{673918D8-D083-464C-9E0E-B8890869B9E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{673918D8-D083-464C-9E0E-B8890869B9E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{673918D8-D083-464C-9E0E-B8890869B9E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2639DE0-0278-4979-9AB9-5C48D74ABAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2639DE0-0278-4979-9AB9-5C48D74ABAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2639DE0-0278-4979-9AB9-5C48D74ABAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2639DE0-0278-4979-9AB9-5C48D74ABAD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +103,8 @@ Global
 		{86D4B97D-AA55-4420-9967-240E90072562} = {20391300-9D54-4BC9-A0A6-97E41B623299}
 		{CC8D0648-57A4-4811-B03A-926C9C177AAF} = {20391300-9D54-4BC9-A0A6-97E41B623299}
 		{E89BEB51-6C5B-4AAF-90B0-4C8FF972B875} = {20391300-9D54-4BC9-A0A6-97E41B623299}
+		{673918D8-D083-464C-9E0E-B8890869B9E2} = {7171BC94-378B-48C9-9BE1-FE9D89FE50F1}
+		{E2639DE0-0278-4979-9AB9-5C48D74ABAD2} = {9E945EC3-4E7E-4E96-B27D-5DDD5FFD08D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9233A37B-A308-4394-A175-80AE96CAAE94}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using AutoMapper;
@@ -80,8 +81,8 @@ namespace SimpleWebShop.Services.Data
         public SingleCategoryViewModel GetCategoryViewModel(string name)
         {
             name = this.NormalizeCategoryName(name);
-            var viewModel = this.categoriesRepository.AllWithDeleted()
-               .To<SingleCategoryViewModel>().FirstOrDefault(x => x.Name == name);
+            var viewModel = this.categoriesRepository.AllWithDeleted().Where(x => x.Name == name)
+                .To<SingleCategoryViewModel>().FirstOrDefault();
             
             return viewModel;
         }   
