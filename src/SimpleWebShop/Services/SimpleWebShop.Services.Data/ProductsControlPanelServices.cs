@@ -1,7 +1,10 @@
-﻿using SimpleWebShop.Data.Common;
+﻿using System;
+using System.Collections.Generic;
+using SimpleWebShop.Data.Common;
 using SimpleWebShop.Data.Models;
 using SimpleWebShop.Services.Data.Contracts;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace SimpleWebShop.Services.Data
 {
@@ -23,6 +26,11 @@ namespace SimpleWebShop.Services.Data
         public int GetAllCategoriesCount()
         {
             return this.categoriesRepository.All().Count();
+        }
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> where)
+        {
+            return this.productsRepository.All().Where(where).ToList();
         }
     }
 }

@@ -47,7 +47,7 @@ namespace SimpleWebShop.Web
             kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>)).InRequestScope();
 
             //Registered The AutoMapper
-            AutoMapperConfig.RegisterMappings(typeof(HomeIndexViewModel).Assembly, typeof(CreateCategoryInputModel).Assembly, Assembly.GetExecutingAssembly());
+            AutoMapperConfig.RegisterMappings(typeof(HomeIndexViewModel).Assembly, typeof(CreateCategoryDto).Assembly, Assembly.GetExecutingAssembly());
             var mapper = AutoMapperConfig.MapperInstance;
             kernel.Bind<IMapper>()
                 .ToMethod(ctx => new Mapper(mapper.ConfigurationProvider, type => ctx.Kernel.Get(type)));
