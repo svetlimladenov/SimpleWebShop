@@ -23,24 +23,27 @@ namespace SimpleWebShop.Web.Areas.Administration.Controllers
 
         public ActionResult Create()
         {
-            var viewModel = new CreateCategoryInputModel()
+            var viewModel = new CreateCategoryDto()
             {
-                AllFontAwesomeIcons = GlobalConstants.FontAwesomeClasses.ToList(),
-                AllCategoriesNames = this.categoriesServices.GetAllParentCategoriesNames()
+                ViewModel = new CreateCategoryViewModel()
+                {
+                    AllFontAwesomeIcons = GlobalConstants.FontAwesomeClasses.ToList(),
+                    AllCategoriesNames = this.categoriesServices.GetAllParentCategoriesNames()
+                }
             };
             return this.View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Create(CreateCategoryInputModel inputModel)
+        public ActionResult Create(CreateCategoryDto dto)
         {   
             if (!ModelState.IsValid)
             {
                 return this.View();
             }
 
-            this.adminCategoriesServices.CreateCategory(inputModel);
-            return this.RedirectToAction("Index","Categories", new { category = inputModel.Name, admin = "true", area = ""});
+            this.adminCategoriesServices.CreateCategory(dto.InputModel);
+            return this.RedirectToAction("Index","Categories", new { category = dto.InputModel.Name, admin = "true", area = ""});
         }
 
         [HttpGet]

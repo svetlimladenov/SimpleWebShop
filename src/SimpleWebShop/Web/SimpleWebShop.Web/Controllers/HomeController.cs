@@ -9,10 +9,12 @@ namespace SimpleWebShop.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ICategoriesServices categoriesServices;
+        private readonly IProductsControlPanelServices productsControlPanelServices;
 
-        public HomeController(ICategoriesServices categoriesServices)
+        public HomeController(ICategoriesServices categoriesServices, IProductsControlPanelServices productsControlPanelServices)
         {
             this.categoriesServices = categoriesServices;
+            this.productsControlPanelServices = productsControlPanelServices;
         }
         public ActionResult Index()
         {
@@ -28,6 +30,12 @@ namespace SimpleWebShop.Web.Controllers
         public ActionResult Categories()
         {
             return Json(this.categoriesServices.GetCategoriesForLinks().ToList(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult TestingSmth()
+        {
+            var products = this.productsControlPanelServices.GetAll(x => x.Name.Contains("f"));
+            return this.Json(products,JsonRequestBehavior.AllowGet);
         }
     }
 }

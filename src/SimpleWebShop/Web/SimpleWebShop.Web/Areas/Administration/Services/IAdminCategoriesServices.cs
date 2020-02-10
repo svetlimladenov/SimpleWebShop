@@ -5,7 +5,7 @@ namespace SimpleWebShop.Web.Areas.Administration.Services
 {
     public interface IAdminCategoriesServices
     {
-        void CreateCategory(CreateCategoryInputModel inputModel);
+        void CreateCategory(CreateCategoryInputModel dto);
 
         void DeleteCategory(string id);
 

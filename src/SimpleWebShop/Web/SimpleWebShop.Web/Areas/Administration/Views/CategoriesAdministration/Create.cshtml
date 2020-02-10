@@ -1,4 +1,4 @@
-﻿@model SimpleWebShop.Web.Areas.Administration.ViewModels.CreateCategoryInputModel
+﻿@model SimpleWebShop.Web.Areas.Administration.ViewModels.CreateCategoryDto
 @{
     ViewBag.Title = "Index";
 }
@@ -8,19 +8,19 @@
     {
         @Html.AntiForgeryToken()
         <div>
-            @Html.LabelFor(x => x.Name)
-            @Html.TextBoxFor(x => x.Name, new {@class = "form-control", placeholder = nameof(Model.Name)})
-            @Html.ValidationMessageFor(x => x.Name)
+            @Html.LabelFor(x => x.InputModel.Name)
+            @Html.TextBoxFor(x => x.InputModel.Name, new {@class = "form-control", placeholder = nameof(Model.InputModel.Name)})
+            @Html.ValidationMessageFor(x => x.InputModel.Name)
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.Description)
-            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", placeholder = nameof(Model.Description)})
-            @Html.ValidationMessageFor(x => x.Description)
+            @Html.LabelFor(x => x.InputModel.Description)
+            @Html.TextAreaFor(x => x.InputModel.Description, new { @class = "form-control", placeholder = nameof(Model.InputModel.Description)})
+            @Html.ValidationMessageFor(x => x.InputModel.Description)
         </div>
         <div>
-            @Html.LabelFor(x => x.IconClass)
-            @Html.DropDownList(nameof(Model.IconClass),
-                new SelectList(Model.AllFontAwesomeIcons),
+            @Html.LabelFor(x => x.InputModel.IconClass)
+            @Html.DropDownList("InputModel.IconClass",
+                new SelectList(Model.ViewModel.AllFontAwesomeIcons),
                 new {@class = "form-control"})
         </div>
         <div class="custom-control custom-switch mt-4">
@@ -28,8 +28,8 @@
             <label class="custom-control-label" for="hasParent">Have a parent category</label>
         </div>
         <div class="form-group mt-2">
-            @Html.DropDownList(nameof(Model.ParentCategoryName),
-                new SelectList(Model.AllCategoriesNames),
+            @Html.DropDownList("InputModel.ParentCategoryName",
+                new SelectList(Model.ViewModel.AllCategoriesNames),
                 new { @class = "form-control", disabled="disabled", id = "parentsDropdown"})
         </div>
         <div class="row justify-content-center mt-3">

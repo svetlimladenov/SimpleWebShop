@@ -24,7 +24,7 @@ namespace SimpleWebShop.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //AutoMapperConfig.RegisterMappings(typeof(HomeIndexViewModel).Assembly,typeof(CreateCategoryInputModel).Assembly,Assembly.GetExecutingAssembly());
+            //AutoMapperConfig.RegisterMappings(typeof(HomeIndexViewModel).Assembly,typeof(CreateCategoryDTO).Assembly,Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -236,6 +236,8 @@
     <Compile Include="Areas\Administration\Services\UsersServices.cs" />
     <Compile Include="Areas\Administration\ViewModels\AllUsersViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\BasicUserViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CreateCategoryDto.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CreateCategoryViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CreateCategoryInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CreateProductInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\ProductsControlViewModel.cs" />
@@ -587,4 +589,11 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
 </Project>
